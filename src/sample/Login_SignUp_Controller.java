@@ -577,4 +577,24 @@ public class Login_SignUp_Controller implements Initializable {
         }
         Login_Pane.getChildren().setAll(admin_pane);
     }
+
+    @FXML
+    private void Teacher_Close_app(ActionEvent event) {
+    }
+
+    @FXML
+    private void SignUp_Close(ActionEvent event) {
+    }
+
+    @FXML
+    private void Profile_Close_App(ActionEvent event) {
+    }
+
+    @FXML
+    private void Pass_Recov_Close_App(ActionEvent event) {
+    }
+
+    @FXML
+    private void Admin_Close_App(ActionEvent event) {
+    }
 }
