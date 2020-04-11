@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="119.0" prefWidth="235.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Label layoutX="31.0" layoutY="41.0" text="State" />
+      <JFXTextField fx:id="stateTxt" layoutX="68.0" layoutY="28.0" />
+      <JFXButton fx:id="stateBtn" buttonType="RAISED" layoutX="84.0" layoutY="74.0" onAction="#enterState" style="-fx-background-color: #2D2D8C;" text="Enter state" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </JFXButton>
+   </children>
+</AnchorPane>
