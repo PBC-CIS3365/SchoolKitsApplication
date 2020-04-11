@@ -39,7 +39,7 @@
       </JFXButton>
       <ImageView fitHeight="76.0" fitWidth="146.0" layoutX="403.0" layoutY="23.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@Resources/school%20kit.png" />
+            <Image url="@Resources/itschool%20kit.png" />
          </image>
       </ImageView>
       <ImageView fitHeight="30.0" fitWidth="27.0" layoutX="273.0" layoutY="222.0" pickOnBounds="true" preserveRatio="true">

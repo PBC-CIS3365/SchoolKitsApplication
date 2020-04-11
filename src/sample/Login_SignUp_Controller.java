@@ -545,7 +545,13 @@ public class Login_SignUp_Controller implements Initializable {
     }
 
     @FXML
-    private void Admin_Forgot_Password(ActionEvent event) {
+    private void Admin_Forgot_Password(ActionEvent event)
+    {
+        AnchorPane Forgot_Password = null;
+        try{
+            Forgot_Password = FXMLLoader.load(getClass().getResource("Password_Recovery.fxml"));
+        } catch (IOException e) { e.printStackTrace();}
+       Admin_Login_Pane.getChildren().setAll(Forgot_Password);
     }
 
     @FXML
