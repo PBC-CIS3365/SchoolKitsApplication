@@ -384,6 +384,10 @@
       <screen x="3200" y="0" width="1920" height="1040" />
     </state>
     <state x="3890" y="296" key="#com.intellij.ide.util.PackageChooserDialog/0.0.1600.860/3200.0.1920.1040@3200.0.1920.1040" timestamp="1585945048186" />
+    <state x="445" y="277" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1586595114723">
+      <screen x="0" y="0" width="2048" height="1112" />
+    </state>
+    <state x="445" y="277" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.2048.1112@0.0.2048.1112" timestamp="1586595114723" />
     <state x="3702" y="115" width="1105" height="913" key="CommitChangelistDialog2" timestamp="1585958674965">
       <screen x="3200" y="0" width="1920" height="1040" />
     </state>
