@@ -12,7 +12,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="Login_Pane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="552.0" prefWidth="881.0" style="-fx-background-color: #2d3447;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Controller">
+<AnchorPane fx:id="Login_Pane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="552.0" prefWidth="881.0" style="-fx-background-color: #2d3447;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Login_SignUp_Controller">
    <children>
       <VBox layoutX="324.0" layoutY="214.0" spacing="50.0">
          <children>
@@ -39,7 +39,7 @@
             <Font size="15.0" />
          </font>
       </JFXCheckBox>
-      <JFXButton layoutX="350.0" layoutY="418.0" prefHeight="30.0" prefWidth="184.0" text="Forgot Password?" textFill="#a0a2ab" underline="true">
+      <JFXButton layoutX="375.0" layoutY="418.0" onAction="#Forgot_Password" prefHeight="30.0" prefWidth="132.0" text="Forgot Password?" textFill="#a0a2ab" underline="true">
          <font>
             <Font size="14.0" />
          </font>
@@ -78,5 +78,6 @@
             <Image url="@Resources/294-1.gif" />
          </image>
       </ImageView>
+      <JFXButton layoutX="14.0" layoutY="24.0" onAction="#Load_Admin_Login" prefHeight="37.0" prefWidth="70.0" style="-fx-background-color: #2d3447; -fx-border-color: #a0a2ab;" text="Admin" textFill="WHITE" />
    </children>
 </AnchorPane>
