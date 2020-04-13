@@ -322,9 +322,10 @@
     </state>
     <state x="257" y="225" key="#com.intellij.ide.util.MemberChooser/0.0.1676.902@0.0.1676.902" timestamp="1586563185264" />
     <state x="314" y="278" key="#com.intellij.ide.util.MemberChooser/0.0.2048.1112@0.0.2048.1112" timestamp="1585859115618" />
-    <state x="502" y="115" key="CommitChangelistDialog2" timestamp="1585874099035">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state x="438" y="91" key="CommitChangelistDialog2" timestamp="1586822140623">
+      <screen x="0" y="0" width="1676" height="902" />
     </state>
+    <state x="438" y="91" key="CommitChangelistDialog2/0.0.1676.902@0.0.1676.902" timestamp="1586822140623" />
     <state x="502" y="115" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1585874099035" />
     <state x="0" y="161" key="CommitChangelistDialog2/0.0.2048.1112@0.0.2048.1112" timestamp="1585873556939" />
     <state width="254" height="195" key="DatabaseViewActions_Filter" timestamp="1585878115265">
@@ -335,10 +336,10 @@
       <screen x="0" y="0" width="2048" height="1112" />
     </state>
     <state x="274" y="294" key="DetectedRootsChooserDialog/0.0.2048.1112@0.0.2048.1112" timestamp="1585859030851" />
-    <state x="183" y="260" key="FileChooserDialogImpl" timestamp="1586561895608">
+    <state x="183" y="260" key="FileChooserDialogImpl" timestamp="1586822158200">
       <screen x="0" y="0" width="1676" height="902" />
     </state>
-    <state x="183" y="260" key="FileChooserDialogImpl/0.0.1676.902@0.0.1676.902" timestamp="1586561895608" />
+    <state x="183" y="260" key="FileChooserDialogImpl/0.0.1676.902@0.0.1676.902" timestamp="1586822158200" />
     <state x="224" y="320" key="FileChooserDialogImpl/0.0.2048.1112@0.0.2048.1112" timestamp="1585859029869" />
     <state x="454" y="460" width="429" height="212" key="Github.ShareDialog" timestamp="1585850599405">
       <screen x="0" y="0" width="2048" height="1112" />
