@@ -1,7 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="test commit" />
+    <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="test commit">
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/jfoenix_9_0_8.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/lib.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/sample/Inventory.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/sample/MylistandSearch.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/sample/MylistandSearch.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/javafx_swt.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SchoolKitsPortal.iml" beforeDir="false" afterPath="$PROJECT_DIR$/SchoolKitsPortal.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SchoolKitsPortal/sample/Controller.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SchoolKitsPortal/sample/Controller.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SchoolKitsPortal/sample/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SchoolKitsPortal/sample/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SchoolKitsPortal/sample/sample.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SchoolKitsPortal/sample/sample.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/Main.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -29,24 +42,25 @@
       <path>
         <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
         <item name="Microsoft SQL Server - @COT-CIS3365-09" type="feb32156:DbDataSourceImpl" />
-        <item name="amar_testdb: database" type="ccb7ac2a:MsImplModel$Database" />
+        <item name="master: database" type="ccb7ac2a:MsImplModel$Database" />
       </path>
       <path>
         <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
         <item name="Microsoft SQL Server - @COT-CIS3365-09" type="feb32156:DbDataSourceImpl" />
-        <item name="amar_testdb: database" type="ccb7ac2a:MsImplModel$Database" />
+        <item name="master: database" type="ccb7ac2a:MsImplModel$Database" />
         <item name="dbo: schema" type="2865ee2e:MsImplModel$Schema" />
       </path>
       <path>
         <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
         <item name="Microsoft SQL Server - @COT-CIS3365-09" type="feb32156:DbDataSourceImpl" />
-        <item name="Chaldun_TestDB: database" type="ccb7ac2a:MsImplModel$Database" />
+        <item name="master: database" type="ccb7ac2a:MsImplModel$Database" />
+        <item name="dbo: schema" type="2865ee2e:MsImplModel$Schema" />
+        <item name="tables" type="d4e8921:DatabaseStructure$FamilyGroup" />
       </path>
       <path>
         <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
         <item name="Microsoft SQL Server - @COT-CIS3365-09" type="feb32156:DbDataSourceImpl" />
-        <item name="Chaldun_TestDB: database" type="ccb7ac2a:MsImplModel$Database" />
-        <item name="dbo: schema" type="2865ee2e:MsImplModel$Schema" />
+        <item name="SKDB: database" type="ccb7ac2a:MsImplModel$Database" />
       </path>
     </expand>
     <select />
@@ -92,6 +106,15 @@
   <component name="FavoritesManager">
     <favorites_list name="JavaFxApplication" />
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="FxmlFile" />
+        <option value="CSS File" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
   <component name="FindManager">
     <FindUsagesManager>
       <setting name="OPEN_NEW_TAB" value="false" />
@@ -128,15 +151,18 @@
     <property name="MemberChooser.showClasses" value="true" />
     <property name="MemberChooser.sorted" value="false" />
     <property name="OverrideImplement.combined" value="false" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="dynamic.classpath" value="false" />
-    <property name="last_opened_file_path" value="$USER_HOME$/Downloads/javaFX-11.0.2_windows-x64_bin-sdk/javafx-sdk-11.0.2/lib/javafx.web.jar!/" />
+    <property name="last_opened_file_path" value="C:/Program Files/Java/jfoenix-9.0.8.jar!/" />
+    <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="project.structure.last.edited" value="Libraries" />
-    <property name="project.structure.proportion" value="0.0" />
-    <property name="project.structure.side.proportion" value="0.0" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.2" />
     <property name="recentsLimit" value="5" />
+    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
   </component>
   <component name="RunManager">
     <configuration default="true" type="Applet" factoryName="Applet">
@@ -167,7 +193,7 @@
     <configuration name="Main" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="sample.Main" />
       <module name="SchoolKitsPortal" />
-      <option name="VM_PARAMETERS" value="--module-path &quot;C:\Users\amar\Downloads\javaFX-11.0.2_windows-x64_bin-sdk\javafx-sdk-11.0.2\lib&quot; --add-modules javafx.controls,javafx.fxml" />
+      <option name="VM_PARAMETERS" value="--module-path &quot;C:\Program Files\Java\javafx-sdk-11.0.2\lib&quot; --add-modules javafx.controls,javafx.fxml" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="sample.*" />
@@ -245,6 +271,12 @@
       <workItem from="1585858984533" duration="3839000" />
       <workItem from="1585873443480" duration="15000" />
       <workItem from="1585873496140" duration="297000" />
+      <workItem from="1585878084686" duration="1368000" />
+      <workItem from="1586468071597" duration="9000" />
+      <workItem from="1586468106410" duration="64000" />
+      <workItem from="1586561793649" duration="9593000" />
+      <workItem from="1586638695921" duration="2777000" />
+      <workItem from="1586820605747" duration="653000" />
     </task>
     <task id="LOCAL-00001" summary="test commit">
       <created>1585873557635</created>
@@ -280,46 +312,57 @@
     <option name="LAST_COMMIT_MESSAGE" value="test commit" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="429" y="173" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1585873190184">
-      <screen x="0" y="0" width="2048" height="1112" />
+    <state x="339" y="85" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1586562003102">
+      <screen x="0" y="0" width="1676" height="902" />
     </state>
+    <state x="339" y="85" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1676.902@0.0.1676.902" timestamp="1586562003102" />
     <state x="429" y="173" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.2048.1112@0.0.2048.1112" timestamp="1585873190184" />
-    <state x="314" y="278" key="#com.intellij.ide.util.MemberChooser" timestamp="1585859115618">
-      <screen x="0" y="0" width="2048" height="1112" />
+    <state x="257" y="225" key="#com.intellij.ide.util.MemberChooser" timestamp="1586563185264">
+      <screen x="0" y="0" width="1676" height="902" />
     </state>
+    <state x="257" y="225" key="#com.intellij.ide.util.MemberChooser/0.0.1676.902@0.0.1676.902" timestamp="1586563185264" />
     <state x="314" y="278" key="#com.intellij.ide.util.MemberChooser/0.0.2048.1112@0.0.2048.1112" timestamp="1585859115618" />
     <state x="502" y="115" key="CommitChangelistDialog2" timestamp="1585874099035">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="502" y="115" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1585874099035" />
     <state x="0" y="161" key="CommitChangelistDialog2/0.0.2048.1112@0.0.2048.1112" timestamp="1585873556939" />
+    <state width="254" height="195" key="DatabaseViewActions_Filter" timestamp="1585878115265">
+      <screen x="0" y="0" width="1676" height="902" />
+    </state>
+    <state width="254" height="195" key="DatabaseViewActions_Filter/0.0.1676.902@0.0.1676.902" timestamp="1585878115265" />
     <state x="274" y="294" key="DetectedRootsChooserDialog" timestamp="1585859030851">
       <screen x="0" y="0" width="2048" height="1112" />
     </state>
     <state x="274" y="294" key="DetectedRootsChooserDialog/0.0.2048.1112@0.0.2048.1112" timestamp="1585859030851" />
-    <state x="224" y="320" key="FileChooserDialogImpl" timestamp="1585859029869">
-      <screen x="0" y="0" width="2048" height="1112" />
+    <state x="183" y="260" key="FileChooserDialogImpl" timestamp="1586561895608">
+      <screen x="0" y="0" width="1676" height="902" />
     </state>
+    <state x="183" y="260" key="FileChooserDialogImpl/0.0.1676.902@0.0.1676.902" timestamp="1586561895608" />
     <state x="224" y="320" key="FileChooserDialogImpl/0.0.2048.1112@0.0.2048.1112" timestamp="1585859029869" />
     <state x="454" y="460" width="429" height="212" key="Github.ShareDialog" timestamp="1585850599405">
       <screen x="0" y="0" width="2048" height="1112" />
     </state>
     <state x="454" y="460" width="429" height="212" key="Github.ShareDialog/0.0.2048.1112@0.0.2048.1112" timestamp="1585850599405" />
-    <state width="1118" height="296" key="GridCell.Tab.0.bottom" timestamp="1585873426998">
-      <screen x="0" y="0" width="2048" height="1112" />
+    <state width="1632" height="120" key="GridCell.Tab.0.bottom" timestamp="1586638373474">
+      <screen x="0" y="0" width="1676" height="902" />
     </state>
+    <state width="1632" height="120" key="GridCell.Tab.0.bottom/0.0.1676.902@0.0.1676.902" timestamp="1586638373474" />
     <state width="1118" height="296" key="GridCell.Tab.0.bottom/0.0.2048.1112@0.0.2048.1112" timestamp="1585873426998" />
-    <state width="1118" height="296" key="GridCell.Tab.0.center" timestamp="1585873426997">
-      <screen x="0" y="0" width="2048" height="1112" />
+    <state width="1632" height="120" key="GridCell.Tab.0.center" timestamp="1586638373473">
+      <screen x="0" y="0" width="1676" height="902" />
     </state>
+    <state width="1632" height="120" key="GridCell.Tab.0.center/0.0.1676.902@0.0.1676.902" timestamp="1586638373473" />
     <state width="1118" height="296" key="GridCell.Tab.0.center/0.0.2048.1112@0.0.2048.1112" timestamp="1585873426997" />
-    <state width="1118" height="296" key="GridCell.Tab.0.left" timestamp="1585873426997">
-      <screen x="0" y="0" width="2048" height="1112" />
+    <state width="1632" height="120" key="GridCell.Tab.0.left" timestamp="1586638373473">
+      <screen x="0" y="0" width="1676" height="902" />
     </state>
+    <state width="1632" height="120" key="GridCell.Tab.0.left/0.0.1676.902@0.0.1676.902" timestamp="1586638373473" />
     <state width="1118" height="296" key="GridCell.Tab.0.left/0.0.2048.1112@0.0.2048.1112" timestamp="1585873426997" />
-    <state width="1118" height="296" key="GridCell.Tab.0.right" timestamp="1585873426997">
-      <screen x="0" y="0" width="2048" height="1112" />
+    <state width="1632" height="120" key="GridCell.Tab.0.right" timestamp="1586638373473">
+      <screen x="0" y="0" width="1676" height="902" />
     </state>
+    <state width="1632" height="120" key="GridCell.Tab.0.right/0.0.1676.902@0.0.1676.902" timestamp="1586638373473" />
     <state width="1118" height="296" key="GridCell.Tab.0.right/0.0.2048.1112@0.0.2048.1112" timestamp="1585873426997" />
     <state width="938" height="366" key="GridCell.Tab.1.bottom" timestamp="1585873426994">
       <screen x="0" y="0" width="2048" height="1112" />
@@ -337,17 +380,19 @@
       <screen x="0" y="0" width="2048" height="1112" />
     </state>
     <state width="938" height="366" key="GridCell.Tab.1.right/0.0.2048.1112@0.0.2048.1112" timestamp="1585873426994" />
-    <state width="189" height="457" key="HiddenNamespacesPopup" timestamp="1585873145198">
-      <screen x="0" y="0" width="2048" height="1112" />
+    <state width="202" height="371" key="HiddenNamespacesPopup" timestamp="1585880208890">
+      <screen x="0" y="0" width="1676" height="902" />
     </state>
+    <state width="202" height="371" key="HiddenNamespacesPopup/0.0.1676.902@0.0.1676.902" timestamp="1585880208890" />
     <state width="189" height="457" key="HiddenNamespacesPopup/0.0.2048.1112@0.0.2048.1112" timestamp="1585873145198" />
     <state x="185" y="277" key="NewModule_or_Project.wizard" timestamp="1585855564402">
       <screen x="0" y="0" width="2048" height="1112" />
     </state>
     <state x="185" y="277" key="NewModule_or_Project.wizard/0.0.2048.1112@0.0.2048.1112" timestamp="1585855564402" />
-    <state x="0" y="153" key="SettingsEditor" timestamp="1585859033004">
-      <screen x="0" y="0" width="2048" height="1112" />
+    <state x="0" y="51" key="SettingsEditor" timestamp="1586561958669">
+      <screen x="0" y="0" width="1676" height="902" />
     </state>
+    <state x="0" y="51" key="SettingsEditor/0.0.1676.902@0.0.1676.902" timestamp="1586561958669" />
     <state x="0" y="153" key="SettingsEditor/0.0.2048.1112@0.0.2048.1112" timestamp="1585859033004" />
     <state x="446" y="482" key="VCS.ChangelistChooser" timestamp="1585873609320">
       <screen x="0" y="0" width="2048" height="1112" />
@@ -362,18 +407,20 @@
       <screen x="0" y="0" width="2048" height="1112" />
     </state>
     <state x="116" y="132" width="796" height="892" key="com.intellij.history.integration.ui.views.FileHistoryDialog/0.0.2048.1112@0.0.2048.1112" timestamp="1585855568162" />
-    <state x="211" y="402" key="com.intellij.ide.util.TipDialog" timestamp="1585873445166">
-      <screen x="0" y="0" width="2048" height="1112" />
+    <state x="173" y="326" key="com.intellij.ide.util.TipDialog" timestamp="1586561795699">
+      <screen x="0" y="0" width="1676" height="902" />
     </state>
+    <state x="173" y="326" key="com.intellij.ide.util.TipDialog/0.0.1676.902@0.0.1676.902" timestamp="1586561795699" />
     <state x="211" y="402" key="com.intellij.ide.util.TipDialog/0.0.2048.1112@0.0.2048.1112" timestamp="1585873445166" />
     <state x="304" y="463" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1585873975339">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="304" y="463" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1040@0.0.1920.1040" timestamp="1585873975339" />
     <state x="324" y="495" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.2048.1112@0.0.2048.1112" timestamp="1585873638134" />
-    <state x="0" y="270" key="new project wizard" timestamp="1585872845224">
-      <screen x="0" y="0" width="2048" height="1112" />
+    <state x="243" y="306" key="new project wizard" timestamp="1586627970392">
+      <screen x="0" y="0" width="1676" height="902" />
     </state>
+    <state x="243" y="306" key="new project wizard/0.0.1676.902@0.0.1676.902" timestamp="1586627970392" />
     <state x="0" y="270" key="new project wizard/0.0.2048.1112@0.0.2048.1112" timestamp="1585872845224" />
   </component>
 </project>
