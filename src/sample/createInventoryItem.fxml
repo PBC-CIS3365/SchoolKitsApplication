@@ -12,40 +12,49 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="580.0" prefWidth="590.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.createInventoryItemController">
+<AnchorPane prefHeight="517.0" prefWidth="532.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.createInventoryItemController">
    <children>
-      <VBox layoutX="108.0" layoutY="66.0" prefHeight="387.0" prefWidth="159.0" spacing="15.0">
+      <VBox layoutX="21.0" layoutY="77.0" prefHeight="410.0" prefWidth="172.0" spacing="15.0">
          <children>
-            <TextField fx:id="nameTxt" />
-            <TextArea fx:id="descriptionTxt" prefHeight="51.0" prefWidth="150.0" />
+            <TextField fx:id="nameTxt" promptText="Enter name of item (required)" />
+            <TextArea fx:id="descriptionTxt" prefHeight="51.0" prefWidth="150.0" promptText="Type description of item (optional)" />
+            <Label text="Quantity (required):" />
             <Spinner fx:id="qtySpinner" prefHeight="26.0" prefWidth="78.0" />
-            <ComboBox fx:id="categoryCombo" prefWidth="150.0" />
-            <ComboBox fx:id="deptCombo" onMouseClicked="#fillDepartments" prefWidth="150.0" />
-            <ComboBox fx:id="brandCombo" prefWidth="150.0" />
-            <Button fx:id="uploadBtn" mnemonicParsing="false" onAction="#uploadImage" text="Upload Image" />
-            <TextField fx:id="urlTxt" prefHeight="22.0" prefWidth="159.0" />
-            <TextArea fx:id="notesTxt" prefHeight="54.0" prefWidth="159.0" />
+            <ComboBox fx:id="categoryCombo" prefHeight="26.0" prefWidth="174.0" promptText="Choose category" />
+            <ComboBox fx:id="deptCombo" onMouseClicked="#fillDepartments" prefHeight="26.0" prefWidth="174.0" promptText="Choose department" />
+            <ComboBox fx:id="brandCombo" prefHeight="26.0" prefWidth="179.0" promptText="Choose brand " />
+            <Button fx:id="uploadBtn" mnemonicParsing="false" onAction="#uploadImage" prefHeight="26.0" prefWidth="177.0" text="Upload Image (optional)" />
+            <TextField fx:id="urlTxt" prefHeight="22.0" prefWidth="159.0" promptText="Enter URL (optional)" />
+            <TextArea fx:id="notesTxt" prefHeight="54.0" prefWidth="159.0" promptText="Enter notes (optional)" />
          </children>
       </VBox>
-      <Label layoutX="20.0" layoutY="71.0" text="Name of item:" />
-      <Label layoutX="22.0" layoutY="122.0" text="Description:" />
-      <Label layoutX="29.0" layoutY="173.0" text="Quantity:" />
-      <Label layoutX="19.0" layoutY="251.0" text="Department:" />
-      <Label layoutX="36.0" layoutY="293.0" text="Brand:" />
-      <Label layoutX="14.0" layoutY="333.0" text="Upload image:" />
-      <Label layoutX="27.0" layoutY="378.0" text="Web URL:" />
-      <Label layoutX="41.0" layoutY="426.0" text="Notes:" />
-      <JFXButton fx:id="addItemBtn" buttonType="RAISED" layoutX="309.0" layoutY="187.0" onAction="#addItem" prefHeight="39.0" prefWidth="110.0" style="-fx-background-color: #008ACD;" text="Add item" textFill="WHITE">
+      <JFXButton fx:id="addItemBtn" buttonType="RAISED" layoutX="378.0" layoutY="160.0" onAction="#addItem" prefHeight="51.0" prefWidth="123.0" style="-fx-background-color: #0035FF;" text="Add item" textFill="WHITE" visible="false">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>
       </JFXButton>
-      <Label layoutX="135.0" layoutY="14.0" text="Suppply Item Form" underline="true">
+      <Label layoutX="142.0" layoutY="14.0" text="Add new item to database">
          <font>
             <Font name="System Bold" size="20.0" />
          </font>
       </Label>
-      <Label layoutX="27.0" layoutY="207.0" text="Category:" />
-      <ImageView fx:id="imageView" fitHeight="331.0" fitWidth="300.0" layoutX="275.0" layoutY="236.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="imageView" fitHeight="271.0" fitWidth="230.0" layoutX="210.0" layoutY="232.0" pickOnBounds="true" preserveRatio="true" />
+      <ComboBox fx:id="vendorCombo" editable="true" layoutX="218.0" layoutY="160.0" prefWidth="150.0" promptText="Choose vendor" visible="false" />
+      <TextField fx:id="priceTxt" layoutX="218.0" layoutY="192.0" prefHeight="26.0" prefWidth="150.0" promptText="Enter Price" visible="false" />
+      <JFXButton fx:id="submitBtn" buttonType="RAISED" layoutX="244.0" layoutY="77.0" onAction="#submitItem" prefHeight="44.0" prefWidth="98.0" ripplerFill="WHITE" style="-fx-background-color: #0035FF;" text="Submit" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </JFXButton>
+      <Label fx:id="enterItemInfoLabel" layoutX="226.0" layoutY="135.0" text="Enter vendor information" visible="false">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Label>
+      <JFXButton fx:id="backButton" buttonType="RAISED" layoutX="14.0" layoutY="17.0" onAction="#goBackToViewInventory" ripplerFill="WHITE" style="-fx-background-color: #0035FF;" text="Back" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </JFXButton>
    </children>
 </AnchorPane>
