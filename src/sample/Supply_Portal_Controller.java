@@ -33,14 +33,27 @@ import static java.lang.Integer.parseInt;
 
 
 public class Supply_Portal_Controller implements Initializable{
+    @FXML
+    private AnchorPane School_Kits_Portal_Pane;
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) { }
 
     @FXML
-    private void Supply_Portal_Sign_Out(ActionEvent event) {
+    private void Supply_Portal_Sign_Out(ActionEvent event)
+    {
+        AnchorPane Teacger_Login_pane = null;
+        try {
+            Teacger_Login_pane = FXMLLoader.load(getClass().getResource("Teacher_Login.fxml"));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        School_Kits_Portal_Pane.getChildren().setAll(Teacger_Login_pane);
     }
 
     @FXML
-    private void Supply_Portal_Close_App(ActionEvent event) {
+    private void Supply_Portal_Close_App(ActionEvent event)
+    {
+        System.exit(0);
     }
 }

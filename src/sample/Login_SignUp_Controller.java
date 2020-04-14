@@ -11,6 +11,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ProgressBar;
@@ -25,6 +26,8 @@ import tray.notification.TrayNotification;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.*;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.Random;
 import java.util.ResourceBundle;
 
@@ -97,8 +100,8 @@ public class Login_SignUp_Controller implements Initializable {
     private JFXPasswordField Q2_Input_Field;
     @FXML
     private Label Recovery_Password;
-    final String DB_URL = "jdbc:sqlserver://cis3365db.c4wtgp04ii93.us-east-1.rds.amazonaws.com;database=PBC";
-    final String user = "chaldunUH";
+    final String DB_URL = "jdbc:sqlserver://COT-CIS3365-09;database=SKDB";
+    final String user = "sa";
     final String pass = "549657Ll";
     @FXML
     private AnchorPane Account_Creation_Pane;
@@ -126,6 +129,24 @@ public class Login_SignUp_Controller implements Initializable {
     private JFXPasswordField Admin_Login_Password;
     @FXML
     private AnchorPane Admin_Login_Pane;
+    @FXML
+    private JFXTextField Sign_Up_F_Name;
+    @FXML
+    private JFXTextField Sign_Up_L_Name;
+    @FXML
+    private JFXTextField Sign_Up_Phone_Number;
+    @FXML
+    private JFXPasswordField Profile_Password;
+    @FXML
+    private JFXPasswordField Profile_Confirm_Password;
+    private String S_F_Name;
+    private String S_L_Name;
+    private String S_Phone;
+    private String S_Date;
+    @FXML
+    private JFXTextField Admin_Email_Recovery;
+    @FXML
+    private AnchorPane Forgot_Admin_Password_Pane;
 
     @Override
     public void initialize(URL location, ResourceBundle resources)
@@ -168,12 +189,15 @@ public class Login_SignUp_Controller implements Initializable {
             Login_Pane.getChildren().setAll(S_pane);
         });
 
+
         try {
             DataValidation.Validator(Login_Email.getText().toUpperCase(), Login_Password.getText());
             String Email    = Login_Email.getText();
             String Password = Login_Password.getText();
             Connection conn = DriverManager.getConnection(DB_URL,user,pass);
-            ResultSet resultSet = conn.createStatement().executeQuery("SELECT * FROM Test.Credentials WHERE Email =('"+Email+"') AND Password_field =('"+Password+"')");
+            ResultSet resultSet = conn.createStatement().executeQuery(" SELECT DBO.[Teacher.Accounts].AccountID, DBO.[Teacher.AccountPassword].AccountID, DBO.[Teacher.Accounts].Email, DBO.[Teacher.AccountPassword].Password " +
+                                                                            " FROM ((DBO.[Teacher.Accounts] INNER JOIN DBO.[Teacher.AccountPassword] ON DBO.[Teacher.Accounts].AccountID = DBO.[Teacher.AccountPassword].AccountID)) " +
+                                                                            "WHERE Email =('"+Email+"') AND Password =('"+Password+"')");
 
             int count = 0;
 
@@ -205,12 +229,6 @@ public class Login_SignUp_Controller implements Initializable {
     @FXML
     private void SignUp_Action(ActionEvent event)
     {
-        Random People_ID = new Random();
-        do {
-            User_ID = People_ID.nextInt((MAX - MIN) + MIN);}while (User_ID < 10000);
-        DataValidation.setID(User_ID);
-
-
         SignUp_Progress.setVisible(true);
         PauseTransition whis = new PauseTransition();
         whis.setDuration(Duration.seconds(3));
@@ -242,25 +260,39 @@ public class Login_SignUp_Controller implements Initializable {
                 tray.showAndDismiss(Duration.seconds(5));
                 throw new IllegalArgumentException();
             }
-            DataValidation.SignUP_Validator(SignUp_Email.getText().toUpperCase(), SignUp_Password.getText(), SignUp_Confirm_Password.getText());
+
+            DataValidation.SignUP_Validator(SignUp_Email.getText().toUpperCase(), Sign_Up_F_Name.getText(), Sign_Up_L_Name.getText(), Sign_Up_Phone_Number.getText());
+            S_F_Name = Sign_Up_F_Name.getText().toUpperCase();
+            S_L_Name = Sign_Up_L_Name.getText().toUpperCase();
             S_Email = SignUp_Email.getText().toUpperCase();
-            S_Password = SignUp_Password.getText();
+            S_Phone = Sign_Up_Phone_Number.getText();
             S_School = Combo_Box_School.getValue().toString();
+            DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+            LocalDateTime now = LocalDateTime.now();
+            S_Date = dtf.format(now);
+
 
             Connection conn = DriverManager.getConnection(DB_URL,user,pass);
             PreparedStatement stmt = null;
 
-            stmt = conn.prepareStatement("INSERT INTO Test.Credentials(Email,Password_field,School,ID) " +
-                                                "VALUES (?,?,?,?)");
-            stmt.setString(1, S_Email);
-            stmt.setString(2, S_Password);
-            stmt.setString(3, S_School);
-            stmt.setInt(4, User_ID);
+            stmt = conn.prepareStatement("INSERT INTO dbo.[Teacher.Accounts] (First_Name,Last_Name,Email,School,Phone_Number,Date_Created,Account_Type)" +
+                                                "VALUES (?,?,?,?,?,?,?)");
+            stmt.setString(1, S_F_Name);
+            stmt.setString(2, S_L_Name);
+            stmt.setString(3, S_Email);
+            stmt.setString(4, S_School);
+            stmt.setString(5, S_Phone);
+            stmt.setString(6, S_Date);
+            stmt.setString(7, "Teacher");
             stmt.executeUpdate();
 
             conn.commit();
             stmt.close();
             conn.close();
+
+            DataValidation.setFName(S_F_Name);
+            DataValidation.setLname(S_L_Name);
+            DataValidation.setEmail(S_Email);
 
             whis.play();
         } catch (Exception e) { SignUp_Progress.setVisible(false);
@@ -270,7 +302,6 @@ public class Login_SignUp_Controller implements Initializable {
     @FXML
     private void School_Choice(ActionEvent event)
     {
-
     }
 
     @FXML
@@ -278,8 +309,14 @@ public class Login_SignUp_Controller implements Initializable {
     {
         Combo_Box_School.setItems(School);
         Combo_Box_School.setStyle("-fx-background-color: a0a2ab;");
-        School.clear();
-        School.addAll("UH", "UT");
+        try {
+            Connection conn = DriverManager.getConnection(DB_URL, user, pass);
+            ResultSet resultSet = conn.createStatement().executeQuery("SELECT * FROM DBO.[SchoolKits.SchoolList]");
+
+            while (resultSet.next()){
+            School.addAll(resultSet.getString("Name"));
+            }
+        } catch (SQLException e) { e.printStackTrace();}
     }
 
     @FXML
@@ -290,13 +327,11 @@ public class Login_SignUp_Controller implements Initializable {
             Forgot_Password = FXMLLoader.load(getClass().getResource("Password_Recovery.fxml"));
         } catch (IOException e) { e.printStackTrace();}
         Login_Pane.getChildren().setAll(Forgot_Password);
-
     }
 
     @FXML
     private void Secuirty_Q1(ActionEvent event)
     {
-
     }
 
     @FXML
@@ -352,7 +387,22 @@ public class Login_SignUp_Controller implements Initializable {
         Connection conn = null;
         conn = DriverManager.getConnection(DB_URL,user,pass);
 
-        ResultSet resultSet = conn.createStatement().executeQuery("SELECT Password_field FROM PBC.Test.Credentials WHERE Email =('"+Recovery_Email+"')AND Security_Question_1 =('"+Q1+"') AND Q1_Answer =('"+Q1_Answer+"') AND Q2_Answer =('"+Q2_Answer+"') AND Security_Question_2 =('"+Q2+"')");
+
+
+        ResultSet resultSet = conn.createStatement().executeQuery("SELECT DBO.[Teacher.Accounts].AccountID,DBO.[Teacher.Security_Validation].AccountID,DBO.[Teacher.AccountSecurityQuestions].AccountID,DBO.[Teacher.AccountPassword].AccountID," +
+                "       DBO.[Teacher.Accounts].Email," +
+                "       DBO.[Teacher.Security_Validation].Security_Q1," +
+                "       DBO.[Teacher.Security_Validation].Security_Q2," +
+                "       dbo.[Teacher.AccountSecurityQuestions].Sq1Answer," +
+                "       DBO.[Teacher.AccountSecurityQuestions].Sq2Answer," +
+                "       DBO.[Teacher.AccountPassword].Password FROM ((DBO.[Teacher.Accounts] INNER JOIN DBO.[Teacher.Security_Validation] ON DBO.[Teacher.Accounts].AccountID = DBO.[Teacher.Security_Validation].AccountID)" +
+                                              "INNER JOIN [Teacher.AccountSecurityQuestions] ON DBO.[Teacher.Accounts].AccountID = DBO.[Teacher.AccountSecurityQuestions].AccountID" +
+                "                  INNER JOIN [Teacher.AccountPassword] ON DBO.[Teacher.Accounts].AccountID = DBO.[Teacher.AccountPassword].AccountID)" +
+                "WHERE Email =('"+Recovery_Email+"')" +
+                "  AND Security_Q1 =('"+Q1+"')"+
+                "  AND Security_Q2 =('"+Q2+"')" +
+                "  AND Sq1Answer =('"+Q1_Answer+"')"+
+                "  AND Sq2Answer =('"+Q2_Answer+"')");
 
             int count = 0;
 
@@ -361,7 +411,12 @@ public class Login_SignUp_Controller implements Initializable {
                 count=count+1;
                 if (count == 1)
                 {
-                    Recovery_Password.setText(resultSet.getString("Password_field"));
+                    Recovery_Password.setText(resultSet.getString("Password"));
+                    Recovery_Password.setVisible(false);
+                    Alert Box = new Alert(Alert.AlertType.INFORMATION);
+                    Box.setTitle("Recovered Password");
+                    Box.setHeaderText(Recovery_Password.getText());
+                    Box.show();
                 }
             }
             if (count == 0)
@@ -393,6 +448,10 @@ public class Login_SignUp_Controller implements Initializable {
     @FXML
     private void Profile_Submit(ActionEvent event)
     {
+        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+        LocalDateTime now = LocalDateTime.now();
+        S_Date = dtf.format(now);
+
         Profile_Progress.setVisible(true);
         PauseTransition whis = new PauseTransition();
         whis.setDuration(Duration.seconds(3));
@@ -401,7 +460,7 @@ public class Login_SignUp_Controller implements Initializable {
             AnimationType type = AnimationType.POPUP;
             tray.setAnimationType(type);
             tray.setTitle("Successfully Finished Account!");
-            tray.setMessage("Welcome " + Profile_F_Name.getText() + " " + Profile_L_Name.getText());
+            tray.setMessage("Welcome " + DataValidation.getFName() + " " + DataValidation.getLName());
             tray.setNotificationType(NotificationType.SUCCESS);
             tray.showAndDismiss(Duration.seconds(1.5));
 
@@ -424,35 +483,50 @@ public class Login_SignUp_Controller implements Initializable {
                 tray.showAndDismiss(Duration.seconds(5));
                 throw new IllegalArgumentException();
             }
-            DataValidation.Profile_Validator(Profile_F_Name.getText().toUpperCase(), Profile_L_Name.getText().toUpperCase(),
-                                            Profile_Area_Code.getText(), Profile_Phone_Number.getText(),
-                                            Profile_Combo_Box_Security_Q1.getValue().toString(), Profile_Combo_Box_Security_Q2.getValue().toString(),
-                                            Profile_QAnswer1.getText(), Profile_QAnswer2.getText());
+            DataValidation.Profile_Validator(Profile_Combo_Box_Security_Q1.getValue().toString(), Profile_Combo_Box_Security_Q2.getValue().toString(),
+                                            Profile_QAnswer1.getText(), Profile_QAnswer2.getText(), Profile_Password.getText());
 
             Connection conn = DriverManager.getConnection(DB_URL,user,pass);
-            PreparedStatement stmt = null;
 
+            ResultSet resultSet_Select = conn.createStatement().executeQuery("SELECT TOP 1 AccountID FROM DBO.[Teacher.Accounts] WHERE First_Name =('"+DataValidation.getFName()+"') AND Last_Name =('"+DataValidation.getLName()+"') AND Email =('"+DataValidation.getEMAIL()+"') ORDER BY AccountID DESC");
+           resultSet_Select.next();
+            int Account_ID_Cookie = resultSet_Select.getInt("AccountID");
+            DataValidation.setAccount_ID_Cookie(Account_ID_Cookie);
 
-            stmt = conn.prepareStatement("Update Test.Credentials SET First_Name=?, Last_Name=?, Area_Code=?, Phone_Number=?, Security_Question_1=?, Security_Question_2=?, Q1_Answer=?, Q2_Answer=? WHERE ID=?");
+            PreparedStatement Insert_Questions = null;
+            PreparedStatement Insert_Q_Answer = null;
+            PreparedStatement Insert_Passwords = null;
 
-
-            stmt.setString(1, Profile_F_Name.getText().toUpperCase());
-            stmt.setString(2, Profile_L_Name.getText().toUpperCase());
-            stmt.setString(3, Profile_Area_Code.getText());
-            stmt.setString(4, Profile_Phone_Number.getText());
-            stmt.setString(5, Profile_Combo_Box_Security_Q1.getValue().toString());
-            stmt.setString(6, Profile_Combo_Box_Security_Q2.getValue().toString());
-            stmt.setString(7, Profile_QAnswer1.getText());
-            stmt.setString(8, Profile_QAnswer2.getText());
-            stmt.setInt(9, DataValidation.getID());
-
-            stmt.executeUpdate();
-
+            Insert_Questions = conn.prepareStatement("INSERT INTO dbo.[Teacher.Security_Validation] (Security_Q1,Security_Q2,AccountID)" +
+                    "VALUES (?,?,?)");
+            Insert_Questions.setString(1, Profile_Combo_Box_Security_Q1.getValue().toString());
+            Insert_Questions.setString(2, Profile_Combo_Box_Security_Q2.getValue().toString());
+            Insert_Questions.setInt(3, Account_ID_Cookie);
+            Insert_Questions.executeUpdate();
             conn.commit();
-            stmt.close();
+            Insert_Questions.close();
+
+            Insert_Q_Answer = conn.prepareStatement("INSERT INTO dbo.[Teacher.AccountSecurityQuestions] (Sq1Answer,Sq2Answer,AccountID)" +
+                    "VALUES (?,?,?)");
+            Insert_Q_Answer.setString(1, Profile_QAnswer1.getText());
+            Insert_Q_Answer.setString(2, Profile_QAnswer2.getText());
+            Insert_Q_Answer.setInt(3, Account_ID_Cookie);
+            Insert_Q_Answer.executeUpdate();
+            conn.commit();
+            Insert_Q_Answer.close();
+
+
+            Insert_Passwords = conn.prepareStatement("INSERT INTO DBO.[Teacher.AccountPassword] (AccountID, Password, Date_Created)" +
+                     "VALUES (?,?,?)");
+            Insert_Passwords.setInt(1,Account_ID_Cookie);
+            Insert_Passwords.setString(2, Profile_Password.getText());
+            Insert_Passwords.setString(3, S_Date);
+            Insert_Passwords.executeUpdate();
+            conn.commit();
+            Insert_Passwords.close();
             conn.close();
 
-            DataValidation.setID(0);
+
             whis.play();
         } catch (Exception e) {
             Profile_Progress.setVisible(false);
@@ -502,13 +576,13 @@ public class Login_SignUp_Controller implements Initializable {
             tray.setNotificationType(NotificationType.SUCCESS);
             tray.showAndDismiss(Duration.seconds(2));
 
-            AnchorPane S_pane = null;
+            AnchorPane School_Kits_Portal_pane = null;
             try {
-                S_pane = FXMLLoader.load(getClass().getResource("Place_Holder.fxml"));  //needs the fxml for the homepage
+                School_Kits_Portal_pane = FXMLLoader.load(getClass().getResource("School_Kits_Supply_Portal.fxml"));
             } catch (IOException e) {
                 e.printStackTrace();
             }
-            Admin_Login_Pane.getChildren().setAll(S_pane);
+            Admin_Login_Pane.getChildren().setAll(School_Kits_Portal_pane);
         });
 
         try {
@@ -516,7 +590,8 @@ public class Login_SignUp_Controller implements Initializable {
             String Email    = Admin_Login_Email.getText().toUpperCase();
             String Password = Admin_Login_Password.getText();
             Connection conn = DriverManager.getConnection(DB_URL,user,pass);
-            ResultSet resultSet = conn.createStatement().executeQuery("SELECT * FROM Test.Credentials WHERE Email =('"+Email+"') AND Password_field =('"+Password+"')");
+
+            ResultSet resultSet = conn.createStatement().executeQuery("SELECT * FROM DBO.[SchoolKits.AdminAccount] FULL OUTER JOIN DBO.[SchoolKits.AccountPasswords] ON DBO.[SchoolKits.AdminAccount].adminAccount_ID = DBO.[SchoolKits.AccountPasswords].adminAccount_ID WHERE Email =('"+Email+"') AND Password =('"+Password+"')");
 
             int count = 0;
 
@@ -540,7 +615,7 @@ public class Login_SignUp_Controller implements Initializable {
 
 
         } catch (Exception e) {
-            Login_Progress.setVisible(false);
+            e.printStackTrace(); Login_Progress.setVisible(false);
         }
     }
 
@@ -549,7 +624,7 @@ public class Login_SignUp_Controller implements Initializable {
     {
         AnchorPane Forgot_Password = null;
         try{
-            Forgot_Password = FXMLLoader.load(getClass().getResource("Password_Recovery.fxml"));
+            Forgot_Password = FXMLLoader.load(getClass().getResource("Admin_Password_Recovery.fxml"));
         } catch (IOException e) { e.printStackTrace();}
        Admin_Login_Pane.getChildren().setAll(Forgot_Password);
     }
@@ -579,22 +654,95 @@ public class Login_SignUp_Controller implements Initializable {
     }
 
     @FXML
-    private void Teacher_Close_app(ActionEvent event) {
+    private void Close_app(ActionEvent event)
+    {
+        System.exit(0);
     }
 
     @FXML
-    private void SignUp_Close(ActionEvent event) {
+    private void Load_Login_From_Admin_Recovery(ActionEvent event)
+    {
+        AnchorPane Admin_F_Pass_Pane = null;
+        try {
+            Admin_F_Pass_Pane = FXMLLoader.load(getClass().getResource("Admin_Login.fxml"));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        Forgot_Admin_Password_Pane.getChildren().setAll(Admin_F_Pass_Pane);
     }
 
     @FXML
-    private void Profile_Close_App(ActionEvent event) {
-    }
+    private void Submit_Admin_Recovery(ActionEvent event)
+    {
+        if (isMyComboBoxEmpty = Combo_Box_Security_Q1.getSelectionModel().isEmpty() || Combo_Box_Security_Q2.getSelectionModel().isEmpty())
+        {
+            TrayNotification tray = new TrayNotification();
+            AnimationType type = AnimationType.POPUP;
+            tray.setAnimationType(type);
+            tray.setTitle("Unsuccessful");
+            tray.setMessage("Please Choose two Security Questions");
+            tray.setNotificationType(NotificationType.ERROR);
+            tray.showAndDismiss(Duration.seconds(5));
+            throw new IllegalArgumentException();
+        }
 
-    @FXML
-    private void Pass_Recov_Close_App(ActionEvent event) {
-    }
+        try {
+            DataValidation.Password_Recovery_Validator(Admin_Email_Recovery.getText(),
+                    Combo_Box_Security_Q1.getValue().toString(),
+                    Q1_Input_Field.getText(),
+                    Combo_Box_Security_Q2.getValue().toString(),
+                    Q2_Input_Field.getText());
 
-    @FXML
-    private void Admin_Close_App(ActionEvent event) {
+
+            String Recovery_Email = Admin_Email_Recovery.getText().toUpperCase();
+            String Q1 = Combo_Box_Security_Q1.getValue().toString();
+            String Q1_Answer = Q1_Input_Field.getText();
+            String Q2 = Combo_Box_Security_Q2.getValue().toString();
+            String Q2_Answer = Q2_Input_Field.getText();
+
+            Connection conn = null;
+            conn = DriverManager.getConnection(DB_URL,user,pass);
+
+            ResultSet resultSet = conn.createStatement().executeQuery("SELECT DBO.[SchoolKits.AdminAccount].AdminAccount_ID,DBO.[SchoolKits.Security_Validation].AdminAccount_ID,DBO.[SchoolKits.AccountSecurityQuestions].AdminAccount_ID,DBO.[SchoolKits.AccountPasswords].AdminAccount_ID," +
+                    "       DBO.[SchoolKits.AdminAccount].Email," +
+                    "       DBO.[SchoolKits.Security_Validation].Security_Q1," +
+                    "       DBO.[SchoolKits.Security_Validation].Security_Q2," +
+                    "       DBO.[SchoolKits.AccountSecurityQuestions].Sq1Answer," +
+                    "       DBO.[SchoolKits.AccountSecurityQuestions].Sq2Answer," +
+                    "       DBO.[SchoolKits.AccountPasswords].Password  FROM ((DBO.[SchoolKits.AdminAccount] INNER JOIN DBO.[SchoolKits.Security_Validation] ON DBO.[SchoolKits.AdminAccount].AdminAccount_ID = DBO.[SchoolKits.Security_Validation].AdminAccount_ID)" +
+                    "INNER JOIN [SchoolKits.AccountSecurityQuestions] ON DBO.[SchoolKits.AdminAccount].AdminAccount_ID = DBO.[SchoolKits.AccountSecurityQuestions].AdminAccount_ID" +
+                    "                 INNER JOIN [SchoolKits.AccountPasswords] ON DBO.[SchoolKits.AdminAccount].AdminAccount_ID = DBO.[SchoolKits.AccountPasswords].AdminAccount_ID)" +
+                    "WHERE Email =('"+Recovery_Email+"')" +
+                    "  AND Security_Q1 =('"+Q1+"')"+
+                    "  AND Security_Q2 =('"+Q2+"')" +
+                    "  AND Sq1Answer =('"+Q1_Answer+"')"+
+                    "  AND Sq2Answer =('"+Q2_Answer+"')");
+
+            int count = 0;
+
+            while (resultSet.next())
+            {
+                count=count+1;
+                if (count == 1)
+                {
+                    Recovery_Password.setText(resultSet.getString("Password"));
+                    Recovery_Password.setVisible(false);
+                    Alert Box = new Alert(Alert.AlertType.INFORMATION);
+                    Box.setTitle("Recovered Password");
+                    Box.setHeaderText(Recovery_Password.getText());
+                    Box.show();
+                }
+            }
+            if (count == 0)
+            {
+                TrayNotification tray = new TrayNotification();
+                AnimationType type = AnimationType.POPUP;
+                tray.setAnimationType(type);
+                tray.setTitle("Unsuccessful");
+                tray.setMessage("No Records found");
+                tray.setNotificationType(NotificationType.ERROR);
+                tray.showAndDismiss(Duration.seconds(5));
+            }
+        } catch (SQLException e) { e.printStackTrace(); }
     }
 }
