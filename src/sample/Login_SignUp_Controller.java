@@ -37,7 +37,6 @@ import static java.lang.Integer.parseInt;
 public class Login_SignUp_Controller implements Initializable {
     private boolean isMyComboBoxEmpty;
     private int User_ID;
-    private int MIN = 10000, MAX = 100000;
     private String S_Email;
     private String S_Password;
     private String S_School;
@@ -216,7 +215,6 @@ public class Login_SignUp_Controller implements Initializable {
                 while (User_Set.next())
                 {
                     Cookies.setUser(Email, ID, User_Set.getString("First_Name"), User_Set.getString("Last_Name"), User_Set.getString("Account_Type"));
-                    System.out.println(Cookies.getAccountId() + Cookies.getEMAIL() + Cookies.getFirstName() + Cookies.getLastName() + Cookies.getAccountType());
                 }
                 whis.play();
             }
@@ -303,6 +301,9 @@ public class Login_SignUp_Controller implements Initializable {
             DataValidation.setFName(S_F_Name);
             DataValidation.setLname(S_L_Name);
             DataValidation.setEmail(S_Email);
+            String Type = "Teacher";
+
+            Cookies.setUser(S_F_Name,S_L_Name,S_Email, Type);
 
             whis.play();
         } catch (Exception e) { SignUp_Progress.setVisible(false);

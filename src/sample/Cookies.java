@@ -16,6 +16,14 @@ public class Cookies
         EMAIL = Email;
         ACCOUNT_TYPE = Account_Type;
     }
+    public static void setUser(String s_f_name, String s_l_name, String s_email, String type)
+    {
+        FIRST_NAME = s_f_name;
+        LAST_NAME = s_l_name;
+        EMAIL = s_email;
+        ACCOUNT_TYPE = type;
+    }
+
     public static void setAccountId(String accountId) {
         ACCOUNT_ID = accountId;
     }
@@ -39,4 +47,6 @@ public class Cookies
     public static String getAccountType() {
         return ACCOUNT_TYPE;
     }
+
+
 }
