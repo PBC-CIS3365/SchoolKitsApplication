@@ -2,8 +2,8 @@
 
 <?import com.jfoenix.controls.JFXButton?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.TreeTableColumn?>
-<?import javafx.scene.control.TreeTableView?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.AnchorPane?>
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="575.0" prefWidth="875.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.MylistandSearch">
@@ -22,13 +22,13 @@
       <AnchorPane fx:id="two_pane" layoutX="208.0" layoutY="-5.0" prefHeight="582.0" prefWidth="667.0">
          <children>
             <Label layoutX="35.0" layoutY="25.0" text="Search - Arsalan" />
-            <TreeTableView layoutX="14.0" layoutY="132.0" prefHeight="435.0" prefWidth="640.0">
+            <TableView fx:id="item_table" layoutX="32.0" layoutY="126.0" prefHeight="426.0" prefWidth="572.0">
               <columns>
-                <TreeTableColumn prefWidth="75.0" text="C1" />
-                <TreeTableColumn prefWidth="75.0" text="C2" />
-                  <TreeTableColumn prefWidth="75.0" text="Column X" />
+                <TableColumn fx:id="itemName_col" prefWidth="156.21820068359375" text="Item" />
+                <TableColumn fx:id="itemDes_col" prefWidth="271.4180603027344" text="Item Description" />
+                  <TableColumn fx:id="itemBrand_col" prefWidth="123.0545654296875" text="Brand" />
               </columns>
-            </TreeTableView>
+            </TableView>
          </children>
       </AnchorPane>
    </children>
