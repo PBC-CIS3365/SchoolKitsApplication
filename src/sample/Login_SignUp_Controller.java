@@ -147,6 +147,8 @@ public class Login_SignUp_Controller implements Initializable {
     private JFXTextField Admin_Email_Recovery;
     @FXML
     private AnchorPane Forgot_Admin_Password_Pane;
+    @FXML
+    private Label Cookie;
 
     @Override
     public void initialize(URL location, ResourceBundle resources)
@@ -192,22 +194,30 @@ public class Login_SignUp_Controller implements Initializable {
 
         try {
             DataValidation.Validator(Login_Email.getText().toUpperCase(), Login_Password.getText());
-            String Email    = Login_Email.getText();
+            String Email    = Login_Email.getText().toUpperCase();
             String Password = Login_Password.getText();
             Connection conn = DriverManager.getConnection(DB_URL,user,pass);
-            ResultSet resultSet = conn.createStatement().executeQuery(" SELECT DBO.[Teacher.Accounts].AccountID, DBO.[Teacher.AccountPassword].AccountID, DBO.[Teacher.Accounts].Email, DBO.[Teacher.AccountPassword].Password " +
+            ResultSet resultSet = conn.createStatement().executeQuery(" SELECT DBO.[Teacher.Accounts].AccountID, DBO.[Teacher.AccountPassword].AccountID, DBO.[Teacher.Accounts].Email, DBO.[Teacher.AccountPassword].Password" +
                                                                             " FROM ((DBO.[Teacher.Accounts] INNER JOIN DBO.[Teacher.AccountPassword] ON DBO.[Teacher.Accounts].AccountID = DBO.[Teacher.AccountPassword].AccountID)) " +
                                                                             "WHERE Email =('"+Email+"') AND Password =('"+Password+"')");
-
             int count = 0;
 
             while (resultSet.next())
             {
-               count=count+1;
-            } 
+                count=count+1;
+                Cookie.setText(resultSet.getString("AccountID"));
+            }
+            String ID = Cookie.getText();
+            ResultSet User_Set = conn.createStatement().executeQuery("SELECT DBO.[Teacher.Accounts].First_Name, DBO.[Teacher.Accounts].Last_Name, DBO.[Teacher.Accounts].Account_Type FROM DBO.[Teacher.Accounts]" +
+                                                                        "WHERE AccountID =('"+ID+"')");
 
             if (count == 1)
             {
+                while (User_Set.next())
+                {
+                    Cookies.setUser(Email, ID, User_Set.getString("First_Name"), User_Set.getString("Last_Name"), User_Set.getString("Account_Type"));
+                    System.out.println(Cookies.getAccountId() + Cookies.getEMAIL() + Cookies.getFirstName() + Cookies.getLastName() + Cookies.getAccountType());
+                }
                 whis.play();
             }
             else {Login_Progress.setVisible(false);
@@ -221,7 +231,7 @@ public class Login_SignUp_Controller implements Initializable {
 
 
         } catch (Exception e) {
-            Login_Progress.setVisible(false);
+            Login_Progress.setVisible(false); e.printStackTrace();
         }
 
     }
