@@ -4,6 +4,7 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="575.0" prefWidth="875.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.MylistandSearch">
@@ -22,13 +23,14 @@
       <AnchorPane fx:id="two_pane" layoutX="208.0" layoutY="-5.0" prefHeight="582.0" prefWidth="667.0">
          <children>
             <Label layoutX="35.0" layoutY="25.0" text="Search - Arsalan" />
-            <TableView fx:id="item_table" layoutX="32.0" layoutY="126.0" prefHeight="426.0" prefWidth="572.0">
+            <TableView fx:id="item_table" layoutX="5.0" layoutY="126.0" prefHeight="450.0" prefWidth="655.0">
               <columns>
                 <TableColumn fx:id="itemName_col" prefWidth="156.21820068359375" text="Item" />
                 <TableColumn fx:id="itemDes_col" prefWidth="271.4180603027344" text="Item Description" />
-                  <TableColumn fx:id="itemBrand_col" prefWidth="123.0545654296875" text="Brand" />
+                  <TableColumn fx:id="itemBrand_col" prefWidth="131.7818603515625" text="Brand" />
               </columns>
             </TableView>
+            <TextField fx:id="search_text" layoutX="141.0" layoutY="71.0" prefHeight="27.0" prefWidth="236.0" />
          </children>
       </AnchorPane>
    </children>

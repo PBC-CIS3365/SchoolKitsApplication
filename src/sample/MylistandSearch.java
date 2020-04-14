@@ -1,8 +1,12 @@
 package sample;
 
 import com.jfoenix.controls.JFXButton;
+import com.jfoenix.controls.JFXTextField;
+import com.sun.javafx.scene.control.inputmap.InputMap;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.collections.transformation.FilteredList;
+import javafx.collections.transformation.SortedList;
 import javafx.fxml.Initializable;
 import javafx.scene.control.TreeTableColumn;
 import javafx.scene.control.TreeTableView;
@@ -14,7 +18,13 @@ import java.awt.event.ActionEvent;
 import java.net.URL;
 import java.util.ResourceBundle;
 import java.sql.*;
+import java.util.function.Predicate;
+
 import javafx.scene.control.*;
+
+
+
+
 
 public class MylistandSearch implements Initializable {
 
@@ -28,18 +38,53 @@ public class MylistandSearch implements Initializable {
     public TableColumn<Inventory, String> itemName_col;
     public TableColumn<Inventory, String> itemDes_col;
     public TableColumn<Inventory, String> itemBrand_col;
+    public TextField search_text;
+
+    final ObservableList<Inventory> inList = FXCollections.observableArrayList();
+
 
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
+
+
+
+
+
         itemName_col.setCellValueFactory(cellData -> cellData.getValue().itemNameProperty());
         itemDes_col.setCellValueFactory(cellData -> cellData.getValue().itemDescriptionProperty());
         itemBrand_col.setCellValueFactory(cellData -> cellData.getValue().itemBrandProperty());
 
+
         try{
             ObservableList<Inventory> inList = InventoryDOA.getAllRecords();
             populateTable(inList);
+            //
+            FilteredList<Inventory> fd = new FilteredList<>(inList, e -> true);
+            search_text.setOnKeyReleased(e -> {
+                search_text.textProperty().addListener((observableValue, oldValue, newValue) -> {
+                    fd.setPredicate((Predicate<? super Inventory>) inventory->{
+                        if(newValue == null || newValue.isEmpty()){
+                            return true;
+                        }
+                        String lowerCaseFilter = newValue.toLowerCase();
+                        if(inventory.getItemName().toLowerCase().contains(lowerCaseFilter)){
+                            return true;
+                        }
+
+                        return false;
+                    });
+                });
+                SortedList<Inventory> sd = new SortedList<>(fd);
+                sd.comparatorProperty().bind(item_table.comparatorProperty());
+                //item_table.setItems(sd);
+                populateTable(sd);
+
+            });
+
+
+            //populateTable(inList);
             System.out.println("ok");
         }catch (ClassNotFoundException e){
             e.printStackTrace();
@@ -51,6 +96,7 @@ public class MylistandSearch implements Initializable {
 
 
     }
+
 
     private void populateTable(ObservableList<Inventory> inList) {
         item_table.setItems(inList);
