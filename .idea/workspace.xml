@@ -1,11 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="-Add Cookie Class ✓">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/Cookies.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/Cookies.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/Login_SignUp_Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/Login_SignUp_Controller.java" afterDir="false" />
-    </list>
+    <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="-Add Cookie Class ✓" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -318,32 +314,36 @@
               <path>
                 <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
                 <item name="Microsoft SQL Server - @COT-CIS3365-09: root" type="7427dc5b:ServiceModel$ServiceGroupNode" />
-                <item name="com.intellij.database.console.session.MessageBusSession@794c818" type="9fbbdea:ServiceModel$ServiceNode" />
-              </path>
-              <path>
-                <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
-                <item name="Microsoft SQL Server - @COT-CIS3365-09: root" type="7427dc5b:ServiceModel$ServiceGroupNode" />
                 <item name="com.intellij.database.console.session.MessageBusSession@45581ae9" type="9fbbdea:ServiceModel$ServiceNode" />
               </path>
               <path>
                 <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
                 <item name="Microsoft SQL Server - @COT-CIS3365-09: root" type="7427dc5b:ServiceModel$ServiceGroupNode" />
-                <item name="com.intellij.database.console.session.MessageBusSession@667ed479" type="9fbbdea:ServiceModel$ServiceNode" />
-              </path>
-              <path>
-                <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
-                <item name="Microsoft SQL Server - @COT-CIS3365-09: root" type="7427dc5b:ServiceModel$ServiceGroupNode" />
-                <item name="com.intellij.database.console.session.MessageBusSession@18b92291" type="9fbbdea:ServiceModel$ServiceNode" />
-              </path>
-              <path>
-                <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
-                <item name="Microsoft SQL Server - @COT-CIS3365-09: root" type="7427dc5b:ServiceModel$ServiceGroupNode" />
-                <item name="com.intellij.database.console.session.MessageBusSession@269b3763" type="9fbbdea:ServiceModel$ServiceNode" />
-              </path>
-              <path>
-                <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
-                <item name="Microsoft SQL Server - @COT-CIS3365-09: root" type="7427dc5b:ServiceModel$ServiceGroupNode" />
                 <item name="com.intellij.database.console.session.MessageBusSession@56b1674d" type="9fbbdea:ServiceModel$ServiceNode" />
+              </path>
+              <path>
+                <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
+                <item name="Microsoft SQL Server - @COT-CIS3365-09: root" type="7427dc5b:ServiceModel$ServiceGroupNode" />
+              </path>
+              <path>
+                <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
+                <item name="Microsoft SQL Server - @COT-CIS3365-09: root" type="7427dc5b:ServiceModel$ServiceGroupNode" />
+                <item name="com.intellij.database.console.session.MessageBusSession@6e32bf93" type="9fbbdea:ServiceModel$ServiceNode" />
+              </path>
+              <path>
+                <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
+                <item name="Microsoft SQL Server - @COT-CIS3365-09: root" type="7427dc5b:ServiceModel$ServiceGroupNode" />
+                <item name="com.intellij.database.console.session.MessageBusSession@54745bb6" type="9fbbdea:ServiceModel$ServiceNode" />
+              </path>
+              <path>
+                <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
+                <item name="Microsoft SQL Server - @COT-CIS3365-09: root" type="7427dc5b:ServiceModel$ServiceGroupNode" />
+                <item name="com.intellij.database.console.session.MessageBusSession@139d35c" type="9fbbdea:ServiceModel$ServiceNode" />
+              </path>
+              <path>
+                <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
+                <item name="Microsoft SQL Server - @COT-CIS3365-09: root" type="7427dc5b:ServiceModel$ServiceGroupNode" />
+                <item name="com.intellij.database.console.session.MessageBusSession@583d160b" type="9fbbdea:ServiceModel$ServiceNode" />
               </path>
             </expand>
             <select />
@@ -538,11 +538,11 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="690" y="267" key="#com.intellij.refactoring.typeMigration.ui.FailedConversionsDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1586314502475" />
-    <state x="342" y="91" width="1333" height="811" key="CommitChangelistDialog2" timestamp="1586908113831">
+    <state x="342" y="91" width="1333" height="811" key="CommitChangelistDialog2" timestamp="1586908596762">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="3702" y="115" width="1105" height="913" key="CommitChangelistDialog2/0.0.1600.860/3200.0.1920.1040@3200.0.1920.1040" timestamp="1585958674965" />
-    <state x="342" y="91" width="1333" height="811" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1586908113831" />
+    <state x="342" y="91" width="1333" height="811" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1586908596762" />
     <state x="0" y="161" key="CommitChangelistDialog2/0.0.2048.1112@0.0.2048.1112" timestamp="1585873556939" />
     <state x="257" y="275" key="DetectedRootsChooserDialog" timestamp="1585881086460">
       <screen x="0" y="0" width="1920" height="1040" />
@@ -621,6 +621,10 @@
     <state width="196" height="354" key="HiddenNamespacesPopup/0.0.1600.860@0.0.1600.860" timestamp="1586873667088" />
     <state width="196" height="428" key="HiddenNamespacesPopup/0.0.1920.1040@0.0.1920.1040" timestamp="1586803157023" />
     <state width="189" height="457" key="HiddenNamespacesPopup/0.0.2048.1112@0.0.2048.1112" timestamp="1585873145198" />
+    <state x="672" y="236" width="1085" height="568" key="MultipleFileMergeDialog" timestamp="1586908574005">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="672" y="236" width="1085" height="568" key="MultipleFileMergeDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1586908574005" />
     <state x="185" y="277" key="NewModule_or_Project.wizard" timestamp="1585855564402">
       <screen x="0" y="0" width="2048" height="1112" />
     </state>
@@ -695,6 +699,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="723" y="233" key="git4idea.branch.GitSmartOperationDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1586896458839" />
+    <state x="729" y="311" key="git4idea.merge.GitMergeDialog" timestamp="1586908560698">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="729" y="311" key="git4idea.merge.GitMergeDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1586908560698" />
     <state x="224" y="223" key="new project wizard" timestamp="1586656703100">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
