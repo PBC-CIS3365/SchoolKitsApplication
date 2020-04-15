@@ -34,7 +34,6 @@ import static java.lang.Integer.parseInt;
 
 public class Login_SignUp_Controller implements Initializable {
     private boolean isMyComboBoxEmpty;
-    private boolean RememberMe;
     private int User_ID;
     private String S_Email;
     private String S_Password;
@@ -147,8 +146,6 @@ public class Login_SignUp_Controller implements Initializable {
     private AnchorPane Forgot_Admin_Password_Pane;
     @FXML
     private Label Cookie;
-    @FXML
-    private JFXCheckBox Remember_Me_Check;
 
     @Override
     public void initialize(URL location, ResourceBundle resources)
@@ -189,10 +186,6 @@ public class Login_SignUp_Controller implements Initializable {
                 e.printStackTrace();
             }
             Login_Pane.getChildren().setAll(S_pane);
-            if (Remember_Me_Check.isSelected())
-            {
-                RememberMe = true;
-            }
         });
 
 
@@ -615,7 +608,7 @@ public class Login_SignUp_Controller implements Initializable {
             while (resultSet.next())
             {
                 count=count+1;
-                Cookie.setText(resultSet.getString("AdminAccount_ID"));
+                Cookie.setText(String.valueOf(resultSet.getInt("AdminAccount_ID")));
                 String ID = Cookie.getText();
                 Cookies.setUser(Email, Integer.parseInt(ID), resultSet.getString("First_Name"), resultSet.getString("Last_Name"), resultSet.getString("Account_Type"));
             }

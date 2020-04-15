@@ -12,18 +12,43 @@ public class supplyItem {
     public String url;
     public String notes;
 
-//    public supplyItem() {}
+    public supplyItem() {}
 
-//    public supplyItem(String name, String description, int qty, String category, String brand, Image image, String url, String notes) {
-//        this.name = name;
-//        this.description = description;
-//        this.qty = qty;
-//        this.category = category;
-//        this.brand = brand;
-//        this.image = image;
-//        this.url = url;
-//        this.notes = notes;
-//    }
+    public supplyItem(String name, String description, int qty, String category, String brand, Image image, String url, String notes) {
+        this.name = name;
+        this.description = description;
+        this.qty = qty;
+        this.category = category;
+        this.brand = brand;
+        this.image = image;
+        this.url = url;
+        this.notes = notes;
+    }
+
+    public supplyItem(String name, String description, int qty, String category, String brand, String url, String notes) {
+        this.name = name;
+        this.description = description;
+        this.qty = qty;
+        this.category = category;
+        this.brand = brand;
+        this.url = url;
+        this.notes = notes;
+    }
+
+    /**
+     * Shortened constructor for selectedSupplyItem class
+     * @param name
+     * @param qty
+     * @param category
+     * @param brand
+     */
+
+    public supplyItem(String name, int qty, String category, String brand) {
+        this.name= name;
+        this.qty=qty;
+        this.category=category;
+        this.brand=brand;
+    }
 
     public String getName() {
         return name;
@@ -88,6 +113,5 @@ public class supplyItem {
     public void setNotes(String notes) {
         this.notes = notes;
     }
-
 
 }
