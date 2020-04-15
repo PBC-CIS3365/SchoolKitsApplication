@@ -91,5 +91,6 @@
             </Menu>
          </menus>
       </MenuBar>
+      <Label fx:id="Cookie" layoutX="45.0" layoutY="182.0" visible="false" />
    </children>
 </AnchorPane>

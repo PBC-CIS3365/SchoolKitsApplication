@@ -1,0 +1,37 @@
+<component name="libraryTable">
+  <library name="TrayTester">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/library/TrayTester.jar!/" />
+      <root url="jar://$PROJECT_DIR$/library/javafx.media.jar!/" />
+      <root url="jar://$PROJECT_DIR$/library/javafx.swing.jar!/" />
+      <root url="jar://$PROJECT_DIR$/library/jfoenix-9.0.8.jar!/" />
+      <root url="jar://$PROJECT_DIR$/library/fontawesomefx-8.9.jar!/" />
+      <root url="jar://$PROJECT_DIR$/library/controlsfx-samples-8.40.13.jar!/" />
+      <root url="jar://$PROJECT_DIR$/library/javafx.fxml.jar!/" />
+      <root url="jar://$PROJECT_DIR$/library/javafx.graphics.jar!/" />
+      <root url="jar://$PROJECT_DIR$/library/javafx.base.jar!/" />
+      <root url="jar://$PROJECT_DIR$/library/javafx.web.jar!/" />
+      <root url="jar://$PROJECT_DIR$/library/javafx.controls.jar!/" />
+      <root url="jar://$PROJECT_DIR$/library/controlsfx-8.40.13.jar!/" />
+      <root url="jar://$PROJECT_DIR$/library/javafx-swt.jar!/" />
+      <root url="jar://$PROJECT_DIR$/library/fxsampler-1.0.10.jar!/" />
+      <root url="file://$PROJECT_DIR$/library" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$PROJECT_DIR$/library/controlsfx-samples-8.40.13.jar!/" />
+      <root url="file://$PROJECT_DIR$/library/sqljdbc_8.2.2.0_enu/sqljdbc_8.2/enu/samples/adaptive" />
+      <root url="file://$PROJECT_DIR$/library/sqljdbc_8.2.2.0_enu/sqljdbc_8.2/enu/samples/alwaysencrypted" />
+      <root url="file://$PROJECT_DIR$/library/sqljdbc_8.2.2.0_enu/sqljdbc_8.2/enu/samples/azureauthentication" />
+      <root url="file://$PROJECT_DIR$/library/sqljdbc_8.2.2.0_enu/sqljdbc_8.2/enu/samples/connections" />
+      <root url="file://$PROJECT_DIR$/library/sqljdbc_8.2.2.0_enu/sqljdbc_8.2/enu/samples/constrained" />
+      <root url="file://$PROJECT_DIR$/library/sqljdbc_8.2.2.0_enu/sqljdbc_8.2/enu/samples/dataclassification" />
+      <root url="file://$PROJECT_DIR$/library/sqljdbc_8.2.2.0_enu/sqljdbc_8.2/enu/samples/datatypes" />
+      <root url="file://$PROJECT_DIR$/library/sqljdbc_8.2.2.0_enu/sqljdbc_8.2/enu/samples/resultsets" />
+      <root url="file://$PROJECT_DIR$/library/sqljdbc_8.2.2.0_enu/sqljdbc_8.2/enu/samples/sparse" />
+      <root url="file://$PROJECT_DIR$/library" />
+    </SOURCES>
+    <jarDirectory url="file://$PROJECT_DIR$/library" recursive="false" />
+    <jarDirectory url="file://$PROJECT_DIR$/library" recursive="false" type="SOURCES" />
+  </library>
+</component>

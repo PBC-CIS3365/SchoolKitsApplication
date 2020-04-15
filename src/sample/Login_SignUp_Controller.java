@@ -1,9 +1,6 @@
 package sample;
 
-import com.jfoenix.controls.JFXButton;
-import com.jfoenix.controls.JFXComboBox;
-import com.jfoenix.controls.JFXPasswordField;
-import com.jfoenix.controls.JFXTextField;
+import com.jfoenix.controls.*;
 import javafx.animation.PauseTransition;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -19,6 +16,8 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.util.Duration;
+import sample.classes.Cookies;
+import sample.classes.DataValidation;
 import tray.animations.AnimationType;
 import tray.notification.NotificationType;
 import tray.notification.TrayNotification;
@@ -28,7 +27,6 @@ import java.net.URL;
 import java.sql.*;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
-import java.util.Random;
 import java.util.ResourceBundle;
 
 import static java.lang.Integer.parseInt;
@@ -36,6 +34,7 @@ import static java.lang.Integer.parseInt;
 
 public class Login_SignUp_Controller implements Initializable {
     private boolean isMyComboBoxEmpty;
+    private boolean RememberMe;
     private int User_ID;
     private String S_Email;
     private String S_Password;
@@ -148,6 +147,8 @@ public class Login_SignUp_Controller implements Initializable {
     private AnchorPane Forgot_Admin_Password_Pane;
     @FXML
     private Label Cookie;
+    @FXML
+    private JFXCheckBox Remember_Me_Check;
 
     @Override
     public void initialize(URL location, ResourceBundle resources)
@@ -188,6 +189,10 @@ public class Login_SignUp_Controller implements Initializable {
                 e.printStackTrace();
             }
             Login_Pane.getChildren().setAll(S_pane);
+            if (Remember_Me_Check.isSelected())
+            {
+                RememberMe = true;
+            }
         });
 
 
@@ -214,7 +219,7 @@ public class Login_SignUp_Controller implements Initializable {
             {
                 while (User_Set.next())
                 {
-                    Cookies.setUser(Email, ID, User_Set.getString("First_Name"), User_Set.getString("Last_Name"), User_Set.getString("Account_Type"));
+                    Cookies.setUser(Email, Integer.parseInt(ID), User_Set.getString("First_Name"), User_Set.getString("Last_Name"), User_Set.getString("Account_Type"));
                 }
                 whis.play();
             }
@@ -231,7 +236,6 @@ public class Login_SignUp_Controller implements Initializable {
         } catch (Exception e) {
             Login_Progress.setVisible(false); e.printStackTrace();
         }
-
     }
 
     @FXML
@@ -388,7 +392,6 @@ public class Login_SignUp_Controller implements Initializable {
                                                    Combo_Box_Security_Q2.getValue().toString(),
                                                    Q2_Input_Field.getText());
 
-
         String Recovery_Email = Email_Recovery.getText().toUpperCase();
         String Q1 = Combo_Box_Security_Q1.getValue().toString();
         String Q1_Answer = Q1_Input_Field.getText();
@@ -477,7 +480,7 @@ public class Login_SignUp_Controller implements Initializable {
 
             AnchorPane Place_Holder_pane = null;
             try{
-                Place_Holder_pane = FXMLLoader.load((getClass().getResource("Place_Holder.fxml")));
+                Place_Holder_pane = FXMLLoader.load((getClass().getResource("Grade_NumStudents.fxml"))); ///// CONTINUE HERE FOR SCENE CHANGE
             }catch (IOException e) { e.printStackTrace();}
             Account_Creation_Pane.getChildren().setAll(Place_Holder_pane);
         });
@@ -503,6 +506,7 @@ public class Login_SignUp_Controller implements Initializable {
            resultSet_Select.next();
             int Account_ID_Cookie = resultSet_Select.getInt("AccountID");
             DataValidation.setAccount_ID_Cookie(Account_ID_Cookie);
+            Cookies.setAccountId(Account_ID_Cookie);
 
             PreparedStatement Insert_Questions = null;
             PreparedStatement Insert_Q_Answer = null;
@@ -600,15 +604,20 @@ public class Login_SignUp_Controller implements Initializable {
             DataValidation.Validator(Admin_Login_Email.getText().toUpperCase(), Admin_Login_Password.getText());
             String Email    = Admin_Login_Email.getText().toUpperCase();
             String Password = Admin_Login_Password.getText();
+
             Connection conn = DriverManager.getConnection(DB_URL,user,pass);
 
-            ResultSet resultSet = conn.createStatement().executeQuery("SELECT * FROM DBO.[SchoolKits.AdminAccount] FULL OUTER JOIN DBO.[SchoolKits.AccountPasswords] ON DBO.[SchoolKits.AdminAccount].adminAccount_ID = DBO.[SchoolKits.AccountPasswords].adminAccount_ID WHERE Email =('"+Email+"') AND Password =('"+Password+"')");
+            ResultSet resultSet = conn.createStatement().executeQuery("SELECT DBO.[SchoolKits.AdminAccount].AdminAccount_ID,DBO.[SchoolKits.AdminAccount].First_Name,DBO.[SchoolKits.AdminAccount].Last_Name,DBO.[SchoolKits.AdminAccount].First_Name,DBO.[SchoolKits.AdminAccount].Email,DBO.[SchoolKits.AdminAccount].Account_Type " +
+                    "FROM DBO.[SchoolKits.AdminAccount] INNER JOIN DBO.[SchoolKits.AccountPasswords] ON DBO.[SchoolKits.AdminAccount].AdminAccount_ID = DBO.[SchoolKits.AccountPasswords].AdminAccount_ID WHERE Email =('"+Email+"') AND Password =('"+Password+"')");
 
             int count = 0;
 
             while (resultSet.next())
             {
                 count=count+1;
+                Cookie.setText(resultSet.getString("AdminAccount_ID"));
+                String ID = Cookie.getText();
+                Cookies.setUser(Email, Integer.parseInt(ID), resultSet.getString("First_Name"), resultSet.getString("Last_Name"), resultSet.getString("Account_Type"));
             }
 
             if (count == 1)
@@ -623,8 +632,6 @@ public class Login_SignUp_Controller implements Initializable {
                 tray.setMessage("Credentials Incorrect");
                 tray.setNotificationType(NotificationType.NOTICE);
                 tray.showAndDismiss(Duration.seconds(5));}
-
-
         } catch (Exception e) {
             e.printStackTrace(); Login_Progress.setVisible(false);
         }
