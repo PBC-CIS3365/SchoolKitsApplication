@@ -37,11 +37,14 @@ public class MylistandSearch implements Initializable {
     public TableColumn<Inventory, String> itemName_col;
     public TableColumn<Inventory, String> itemDes_col;
     public TableColumn<Inventory, String> itemBrand_col;
+    public TableColumn<Inventory, Integer> suppyId_col;
+
     public TextField search_text;
 
     final ObservableList<Inventory> inList = FXCollections.observableArrayList();
     public JFXButton addToLost_button;
     public Label noList_label;
+
 
     String itemName;
     String itemDes;
@@ -59,6 +62,7 @@ public class MylistandSearch implements Initializable {
         itemName_col.setCellValueFactory(cellData -> cellData.getValue().itemNameProperty());
         itemDes_col.setCellValueFactory(cellData -> cellData.getValue().itemDescriptionProperty());
         itemBrand_col.setCellValueFactory(cellData -> cellData.getValue().itemBrandProperty());
+        suppyId_col.setCellValueFactory(cellData -> cellData.getValue().supplyIDProperty().asObject());
 
 
         try{

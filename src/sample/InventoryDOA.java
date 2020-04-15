@@ -36,6 +36,7 @@ public class InventoryDOA {
                 in.setItemName(rs.getString("Supply_Name"));
                 in.setItemDescription(rs.getString("Description"));
                 in.setItemBrand(rs.getString("Brand"));
+                in.setSupplyID(rs.getInt("SupplyID"));
                 invlist.add(in);
             }
             return  invlist;

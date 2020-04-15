@@ -25,9 +25,10 @@
             <Label layoutX="35.0" layoutY="25.0" text="Search - Arsalan" />
             <TableView fx:id="item_table" layoutX="5.0" layoutY="126.0" prefHeight="450.0" prefWidth="655.0">
               <columns>
-                <TableColumn fx:id="itemName_col" prefWidth="156.21820068359375" text="Item" />
-                <TableColumn fx:id="itemDes_col" prefWidth="271.4180603027344" text="Item Description" />
-                  <TableColumn fx:id="itemBrand_col" prefWidth="131.7818603515625" text="Brand" />
+                <TableColumn fx:id="itemName_col" prefWidth="160.58184814453125" text="Item" />
+                <TableColumn fx:id="itemDes_col" prefWidth="297.6001281738281" text="Item Description" />
+                  <TableColumn fx:id="itemBrand_col" prefWidth="117.818115234375" text="Brand" />
+                  <TableColumn fx:id="suppyId_col" prefWidth="77.6728515625" text="Supply ID" />
               </columns>
             </TableView>
             <TextField fx:id="search_text" layoutX="141.0" layoutY="71.0" prefHeight="27.0" prefWidth="236.0" />
