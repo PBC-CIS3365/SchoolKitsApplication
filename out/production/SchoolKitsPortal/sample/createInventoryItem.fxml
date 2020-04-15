@@ -12,13 +12,16 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="517.0" prefWidth="532.0" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.createInventoryItemController">
+<AnchorPane prefHeight="517.0" prefWidth="532.0" style="-fx-background-color: #2d3447;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.createInventoryItemController">
    <children>
       <VBox layoutX="21.0" layoutY="77.0" prefHeight="410.0" prefWidth="172.0" spacing="15.0">
          <children>
             <TextField fx:id="nameTxt" promptText="Enter name of item (required)" />
             <TextArea fx:id="descriptionTxt" prefHeight="51.0" prefWidth="150.0" promptText="Type description of item (optional)" />
-            <Label text="Quantity (required):" />
+            <Label text="Quantity (required):" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font></Label>
             <Spinner fx:id="qtySpinner" prefHeight="26.0" prefWidth="78.0" />
             <ComboBox fx:id="categoryCombo" prefHeight="26.0" prefWidth="174.0" promptText="Choose category" />
             <ComboBox fx:id="deptCombo" onMouseClicked="#fillDepartments" prefHeight="26.0" prefWidth="174.0" promptText="Choose department" />
@@ -33,7 +36,7 @@
             <Font name="System Bold" size="12.0" />
          </font>
       </JFXButton>
-      <Label layoutX="169.0" layoutY="13.0" text="Add new item to database">
+      <Label layoutX="169.0" layoutY="13.0" prefHeight="30.0" prefWidth="260.0" text="Add new item to database" textFill="#2196f3" underline="true">
          <font>
             <Font name="System Bold" size="20.0" />
          </font>
@@ -46,12 +49,12 @@
             <Font name="System Bold" size="12.0" />
          </font>
       </JFXButton>
-      <Label fx:id="enterItemInfoLabel" layoutX="226.0" layoutY="135.0" text="Enter vendor information" visible="false">
+      <Label fx:id="enterItemInfoLabel" layoutX="226.0" layoutY="135.0" text="Enter vendor information" textFill="WHITE" visible="false">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>
       </Label>
-      <JFXButton fx:id="backButton" buttonType="RAISED" layoutX="8.0" layoutY="16.0" onAction="#goBackToViewInventory" ripplerFill="WHITE" style="-fx-background-color: #ff0000;" text="Back to inventory" textFill="WHITE">
+      <JFXButton fx:id="backButton" buttonType="RAISED" layoutX="21.0" layoutY="17.0" onAction="#goBackToViewInventory" ripplerFill="WHITE" style="-fx-background-color: #ff0000;" text="Back to inventory" textFill="WHITE">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>
