@@ -1,4 +1,4 @@
-package sample;
+package sample.classes;
 
 public class Cookies
 {

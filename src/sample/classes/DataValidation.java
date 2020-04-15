@@ -1,4 +1,4 @@
-package sample;
+package sample.classes;
 
 import javafx.util.Duration;
 import tray.animations.AnimationType;
