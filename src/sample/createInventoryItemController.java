@@ -122,6 +122,7 @@ public class createInventoryItemController implements Initializable {
             e.printStackTrace();
         }
     }
+
     public void fillDepartments(MouseEvent mouseEvent) {
 
         String category = (String) categoryCombo.getValue();
@@ -224,7 +225,7 @@ public class createInventoryItemController implements Initializable {
     public void addItem(ActionEvent actionEvent) throws IOException {
 
         /**
-         * function to insert price for supplyID into database table
+         * function to insert price for supplyID into schoolkits.supplyitemprice
          */
         float getPrice = Float.parseFloat(priceTxt.getText());
         double price = (double) Math.round(getPrice*100)/100;
