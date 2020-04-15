@@ -22,8 +22,7 @@ import java.util.function.Predicate;
 
 import javafx.scene.control.*;
 
-
-
+import javax.sound.midi.Soundbank;
 
 
 public class MylistandSearch implements Initializable {
@@ -41,7 +40,12 @@ public class MylistandSearch implements Initializable {
     public TextField search_text;
 
     final ObservableList<Inventory> inList = FXCollections.observableArrayList();
+    public JFXButton addToLost_button;
+    public Label noList_label;
 
+    String itemName;
+    String itemDes;
+    String itemB;
 
 
     @Override
@@ -120,6 +124,23 @@ public class MylistandSearch implements Initializable {
             one_pane.setVisible(false);
             two_pane.setVisible(true);
         }
+
+    }
+
+    public void addToListAction(MouseEvent mouseEvent) {
+        Inventory in = (Inventory) item_table.getSelectionModel().getSelectedItem();
+        if(in == null){
+            noList_label.setVisible(true);
+        }else{
+            itemName = in.getItemName();
+            itemDes = in.getItemDescription();
+            itemB = in.getItemBrand();
+            System.out.println(itemName + " " + itemDes + " " + itemB);
+
+        }
+        noList_label.setVisible(false);
+
+
 
     }
 }

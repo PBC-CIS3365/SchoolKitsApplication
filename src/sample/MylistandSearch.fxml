@@ -31,6 +31,8 @@
               </columns>
             </TableView>
             <TextField fx:id="search_text" layoutX="141.0" layoutY="71.0" prefHeight="27.0" prefWidth="236.0" />
+            <JFXButton fx:id="addToLost_button" layoutX="467.0" layoutY="28.0" onMouseClicked="#addToListAction" prefHeight="27.0" prefWidth="104.0" text="Add to List" />
+            <Label fx:id="noList_label" layoutX="467.0" layoutY="76.0" prefHeight="17.0" prefWidth="125.0" text="Nothing Selected!" visible="false" />
          </children>
       </AnchorPane>
    </children>
