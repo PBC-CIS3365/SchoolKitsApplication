@@ -38,7 +38,7 @@
             <Font size="15.0" />
          </font>
       </JFXButton>
-      <JFXCheckBox layoutX="320.0" layoutY="377.0" text="Remember Me" textFill="#a0a2ab">
+      <JFXCheckBox fx:id="Remember_Me_Check" layoutX="320.0" layoutY="377.0" text="Remember Me" textFill="#a0a2ab">
          <font>
             <Font size="15.0" />
          </font>
