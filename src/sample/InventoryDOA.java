@@ -38,6 +38,7 @@ public class InventoryDOA {
                 in.setItemBrand(rs.getString("Brand"));
                 in.setSupplyID(rs.getInt("SupplyID"));
                 invlist.add(in);
+
             }
             return  invlist;
         }catch (SQLException e){

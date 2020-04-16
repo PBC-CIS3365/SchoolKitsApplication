@@ -8,14 +8,21 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.collections.transformation.FilteredList;
 import javafx.collections.transformation.SortedList;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.TreeTableColumn;
 import javafx.scene.control.TreeTableView;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 
 import java.awt.event.ActionEvent;
+import java.io.*;
 import java.net.URL;
 import java.util.ResourceBundle;
 import java.sql.*;
@@ -23,6 +30,10 @@ import java.util.function.Predicate;
 
 import javafx.scene.control.*;
 import javafx.scene.text.Text;
+import javafx.stage.Stage;
+import sample.classes.Cookies;
+import sample.classes.selectedSupplyItem;
+import sample.classes.selectedSupplyItem;
 
 import javax.sound.midi.Soundbank;
 
@@ -50,6 +61,9 @@ public class MylistandSearch implements Initializable {
             ////new new new
     public JFXComboBox quantity_combo;
     public Text info2_field;
+    public JFXButton refresh_button1;
+
+    public ImageView image_view;
 
     String accountID;
     //get account ID from cookies or something, will take accountID # from tables temporarily
@@ -60,6 +74,8 @@ public class MylistandSearch implements Initializable {
     int supplyId_cookie;
 
     int quantity = 0;
+
+
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -75,11 +91,11 @@ public class MylistandSearch implements Initializable {
         itemBrand_col.setCellValueFactory(cellData -> cellData.getValue().itemBrandProperty());
         suppyId_col.setCellValueFactory(cellData -> cellData.getValue().supplyIDProperty().asObject());
 
-
+    /*
         try{
             ObservableList<Inventory> inList = InventoryDOA.getAllRecords();
             populateTable(inList);
-            //
+
             FilteredList<Inventory> fd = new FilteredList<>(inList, e -> true);
             search_text.setOnKeyReleased(e -> {
                 search_text.textProperty().addListener((observableValue, oldValue, newValue) -> {
@@ -97,13 +113,13 @@ public class MylistandSearch implements Initializable {
                 });
                 SortedList<Inventory> sd = new SortedList<>(fd);
                 sd.comparatorProperty().bind(item_table.comparatorProperty());
-                //item_table.setItems(sd);
+
                 populateTable(sd);
 
             });
 
 
-            //populateTable(inList);
+
             System.out.println("ok");
         }catch (ClassNotFoundException e){
             e.printStackTrace();
@@ -113,7 +129,7 @@ public class MylistandSearch implements Initializable {
 
 
 
-
+*/
     }
 
 
@@ -122,13 +138,21 @@ public class MylistandSearch implements Initializable {
     }
 
 
-    public void list_action(MouseEvent mouseEvent) {
-       if(one_pane.isVisible() && !(two_pane.isVisible())){
+    public void list_action(MouseEvent mouseEvent) throws IOException {
+
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(getClass().getResource("listView.fxml"));
+        Parent GUI = loader.load();
+        Scene scene = new Scene(GUI);
+        Stage window = (Stage)((Node) mouseEvent.getSource()).getScene().getWindow();
+        window.setScene(scene);
+        window.show();
+      /* if(one_pane.isVisible() && !(two_pane.isVisible())){
            System.out.println("good");
        }else{
            one_pane.setVisible(true);
            two_pane.setVisible(false);
-       }
+       }*/
 
     }
 
@@ -172,6 +196,19 @@ public class MylistandSearch implements Initializable {
                 int lis = 25;
 
                 try{
+                    int accountID = Cookies.getAccountId();
+
+                    String sql3 = "SELECT List_ID from [Teacher.SupplyList] left join [Teacher.Accounts] on [Teacher.SupplyList].Account_ID=[Teacher.Accounts].AccountID where AccountID ="+ accountID;
+                    Statement stmt3;
+                    stmt3 = con.createStatement();
+                    ResultSet rs = stmt3.executeQuery(sql3);
+                    while (rs.next()){
+                        lis = rs.getInt(1);
+
+
+                    }
+
+
                     if(supplyId_cookie == supplyId){
                         //String sql2 = "UPDATE [Teacher.SupplyListItems] SET Quantity=? WHERE Supply_ID=?";
                         //String sql2 = "UPDATE [Teacher.SupplyListItems] SET Quantity=? WHERE Supply_ID=" + supplyId;
@@ -190,7 +227,7 @@ public class MylistandSearch implements Initializable {
                         PreparedStatement stmt = con.prepareStatement(sql);
 
 
-                        stmt.setInt(1,25);
+                        stmt.setInt(1,lis);
                         stmt.setInt(2,supplyId);
                         stmt.setInt(3, quantity);
                         supplyId_cookie = supplyId;
@@ -232,5 +269,48 @@ public class MylistandSearch implements Initializable {
 
 
     }
+
+    public void handleRefresh(MouseEvent mouseEvent) {
+        try{
+            ObservableList<Inventory> inList = InventoryDOA.getAllRecords();
+            populateTable(inList);
+
+            FilteredList<Inventory> fd = new FilteredList<>(inList, e -> true);
+            search_text.setOnKeyReleased(e -> {
+                search_text.textProperty().addListener((observableValue, oldValue, newValue) -> {
+                    fd.setPredicate((Predicate<? super Inventory>) inventory->{
+                        if(newValue == null || newValue.isEmpty()){
+                            return true;
+                        }
+                        String lowerCaseFilter = newValue.toLowerCase();
+                        if(inventory.getItemName().toLowerCase().contains(lowerCaseFilter)){
+                            return true;
+                        }
+
+                        return false;
+                    });
+                });
+                SortedList<Inventory> sd = new SortedList<>(fd);
+                sd.comparatorProperty().bind(item_table.comparatorProperty());
+
+                populateTable(sd);
+
+            });
+
+
+
+            System.out.println("ok");
+        }catch (ClassNotFoundException e){
+            e.printStackTrace();
+        }catch (SQLException e){
+            e.printStackTrace();
+        }
+
+
+
+
+    }
+
+
 
 }
