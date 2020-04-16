@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="593.0" prefWidth="892.0" style="-fx-background-color: #2d3447;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.MylistandSearch">
+   <children>
+      <AnchorPane layoutY="-6.0" prefHeight="575.0" prefWidth="195.0" style="-fx-background-color: #2d3447;">
+         <children>
+            <JFXButton fx:id="b1" buttonType="RAISED" layoutX="14.0" layoutY="146.0" onMouseClicked="#list_action" prefHeight="97.0" prefWidth="115.0" ripplerFill="#d6ecfc" style="-fx-border-color: black; -fx-background-color: #2196f3;" text="View List" />
+            <JFXButton fx:id="b2" buttonType="RAISED" layoutX="14.0" layoutY="259.0" onMouseClicked="#searchAction" prefHeight="96.0" prefWidth="115.0" ripplerFill="#c8ddee" style="-fx-border-color: black; -fx-background-color: #2196f3;" text="Search" visible="false" />
+         </children>
+      </AnchorPane>
+      <AnchorPane fx:id="one_pane" layoutX="209.0" prefHeight="575.0" prefWidth="666.0" visible="false">
+         <children>
+            <Label layoutX="83.0" layoutY="419.0" text="My list -Tanvir" />
+         </children>
+      </AnchorPane>
+      <AnchorPane fx:id="two_pane" layoutX="208.0" layoutY="-5.0" prefHeight="582.0" prefWidth="667.0">
+         <children>
+            <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#e7eff7" height="35.0" layoutX="98.0" layoutY="82.0" stroke="BLACK" strokeType="INSIDE" width="77.0" />
+            <TableView fx:id="item_table" layoutX="5.0" layoutY="126.0" prefHeight="450.0" prefWidth="655.0" style="-fx-background-color: #e9ebf2;">
+              <columns>
+                <TableColumn fx:id="itemName_col" prefWidth="160.58184814453125" text="Item" />
+                <TableColumn fx:id="itemDes_col" prefWidth="297.6001281738281" text="Item Description" />
+                  <TableColumn fx:id="itemBrand_col" prefWidth="117.818115234375" text="Brand" />
+                  <TableColumn fx:id="suppyId_col" prefWidth="77.6728515625" text="Supply ID" />
+              </columns>
+            </TableView>
+            <TextField fx:id="search_text" layoutX="8.0" layoutY="47.0" prefHeight="27.0" prefWidth="334.0" promptText="Notebook" style="-fx-border-color: #ecebf0; -fx-background-insets: -0.2, 1, -1.4, 3; -fx-background-radius: 0; -fx-padding: 4 7 4 15;" />
+            <JFXButton fx:id="addToLost_button" buttonType="RAISED" layoutX="236.0" layoutY="85.0" onMouseClicked="#addToListAction" prefHeight="27.0" prefWidth="104.0" style="-fx-background-color: #2196f3;" text="Add to List">
+               <font>
+                  <Font name="Calibri" size="14.0" />
+               </font>
+            </JFXButton>
+            <Label layoutX="5.0" layoutY="90.0" text="Select Quantity:" textFill="#5ab1f3">
+               <font>
+                  <Font name="Calibri Bold" size="14.0" />
+               </font>
+            </Label>
+            <JFXComboBox fx:id="quantity_combo" layoutX="104.0" layoutY="85.0" prefHeight="27.0" prefWidth="64.0" style="-jfx-focus-color: white;" />
+            <Text fx:id="info2_field" fill="#2196f3" layoutX="395.0" layoutY="36.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="264.2846260070801">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Text>
+            <Label layoutX="5.0" layoutY="21.0" prefHeight="17.0" prefWidth="376.0" text="Search Item Below, Select it , Choose Quantity and Add to List!" textFill="#5ab1f3">
+               <font>
+                  <Font name="Calibri Bold" size="14.0" />
+               </font>
+            </Label>
+            <JFXButton fx:id="refresh_button1" buttonType="RAISED" layoutX="353.0" layoutY="47.0" onMouseClicked="#handleRefresh" prefHeight="27.0" prefWidth="195.0" style="-fx-background-color: #2196f3;" text="Click Here to View Records">
+               <font>
+                  <Font name="Calibri" size="14.0" />
+               </font>
+            </JFXButton>
+         </children>
+      </AnchorPane>
+      <ImageView fx:id="image_view" fitHeight="253.0" fitWidth="252.0" layoutX="890.0" layoutY="12.0" pickOnBounds="true" preserveRatio="true" />
+   </children>
+</AnchorPane>
