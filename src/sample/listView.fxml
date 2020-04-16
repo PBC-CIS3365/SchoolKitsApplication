@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="629.0" prefWidth="792.0" style="-fx-background-color: #2d3447;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.listView">
+   <children>
+      <TableView fx:id="listView_table" layoutX="7.0" layoutY="144.0" prefHeight="476.0" prefWidth="778.0">
+        <columns>
+          <TableColumn fx:id="list_num" prefWidth="59.34552001953125" text="List #" />
+          <TableColumn fx:id="item_name" prefWidth="191.99993896484375" text="Item Name" />
+            <TableColumn fx:id="item_des" prefWidth="315.9273986816406" text="Item Description" />
+            <TableColumn fx:id="quan" prefWidth="68.945556640625" text="Quantity" />
+        </columns>
+      </TableView>
+      <Button fx:id="b1" layoutX="26.0" layoutY="95.0" mnemonicParsing="false" onMouseClicked="#handleClick" prefHeight="27.0" prefWidth="101.0" style="-fx-background-color: #2196f3;" text="View List(s)" />
+      <JFXButton fx:id="back_button" layoutX="20.0" layoutY="22.0" onMouseClicked="#handleBack" prefHeight="34.0" prefWidth="112.0" style="-fx-background-color: #2196f3;" text="Back">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </JFXButton>
+      <JFXButton layoutX="591.0" layoutY="56.0" prefHeight="34.0" prefWidth="112.0" style="-fx-background-color: #2196f3;" text="Submit">
+         <font>
+            <Font name="System Bold" size="13.0" />
+         </font>
+      </JFXButton>
+   </children>
+</AnchorPane>
