@@ -13,6 +13,7 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
+import sample.classes.Cookies;
 
 import java.io.IOException;
 import java.net.URL;
@@ -62,6 +63,18 @@ public class listView implements Initializable {
         Parent GUI = loader.load();
         Scene scene = new Scene(GUI);
         Stage window = (Stage)((Node) mouseEvent.getSource()).getScene().getWindow();
+        window.setScene(scene);
+        window.show();
+    }
+
+    public void backToHome(ActionEvent actionEvent) throws IOException {
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(getClass().getResource("teacherHomePage.fxml"));
+        Parent GUI = loader.load();
+        teacherHomeController controller = loader.getController();
+        controller.passData(Cookies.getAccountId());
+        Scene scene = new Scene(GUI);
+        Stage window = (Stage)((Node) actionEvent.getSource()).getScene().getWindow();
         window.setScene(scene);
         window.show();
     }

@@ -3,11 +3,17 @@ package sample;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.ComboBox;
 import javafx.scene.layout.AnchorPane;
+import javafx.stage.Stage;
 import sample.classes.Cookies;
 
+import java.io.IOException;
 import java.net.URL;
 import java.sql.*;
 import java.time.LocalDate;
@@ -61,7 +67,7 @@ public class pickGradesController implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
     }
 
-    public void searchSupplies(ActionEvent actionEvent) {
+    public void searchSupplies(ActionEvent actionEvent) throws IOException {
         int grade = (int) gradeCombo.getValue();
 
         int year = Calendar.getInstance().get(Calendar.YEAR);
@@ -93,10 +99,19 @@ public class pickGradesController implements Initializable {
 
             while (rs.next()) {
                 int currentListID = rs.getInt("List_ID");
+                Cookies.setList_ID(currentListID);
             }
 
         } catch (SQLException e) {
             e.printStackTrace();
         }
+
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(getClass().getResource("MylistandSearch.fxml"));
+        Parent GUI = loader.load();
+        Scene scene = new Scene(GUI);
+        Stage window = (Stage)((Node) actionEvent.getSource()).getScene().getWindow();
+        window.setScene(scene);
+        window.show();
     }
 }

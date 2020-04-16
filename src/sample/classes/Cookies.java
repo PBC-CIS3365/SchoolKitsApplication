@@ -7,6 +7,9 @@ public class Cookies
     private static String LAST_NAME;
     private static String EMAIL;
     private static String ACCOUNT_TYPE;
+    private static int List_ID;
+
+
 
 
     public static void setUser(String Email, int ID, String F_Name, String L_Name, String Account_Type)
@@ -23,6 +26,10 @@ public class Cookies
         LAST_NAME = s_l_name;
         EMAIL = s_email;
         ACCOUNT_TYPE = type;
+    }
+
+    public static void setList(int list_ID) {
+        List_ID=list_ID;
     }
 
     public static void setAccountId(int accountId) {
@@ -47,6 +54,14 @@ public class Cookies
 
     public static String getAccountType() {
         return ACCOUNT_TYPE;
+    }
+
+    public static int getList_ID() {
+        return List_ID;
+    }
+
+    public static void setList_ID(int list_ID) {
+        List_ID = list_ID;
     }
 
 

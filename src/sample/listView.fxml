@@ -23,7 +23,7 @@
             <Font name="System Bold" size="13.0" />
          </font>
       </JFXButton>
-      <JFXButton layoutX="591.0" layoutY="56.0" prefHeight="34.0" prefWidth="112.0" style="-fx-background-color: #2196f3;" text="Submit">
+      <JFXButton layoutX="591.0" layoutY="56.0" onAction="#backToHome" prefHeight="34.0" prefWidth="112.0" style="-fx-background-color: #2196f3;" text="Submit">
          <font>
             <Font name="System Bold" size="13.0" />
          </font>

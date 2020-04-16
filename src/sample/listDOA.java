@@ -16,18 +16,16 @@ public class listDOA {
         stmt1 = con.createStatement();
 
 
-        int lis = 1;
+        int lis = Cookies.getList_ID();
         Cookies coo = new Cookies();
         int accountID = Cookies.getAccountId();
         String sql3 = "SELECT List_ID from [Teacher.SupplyList] left join [Teacher.Accounts] on [Teacher.SupplyList].Account_ID=[Teacher.Accounts].AccountID where AccountID ="+ accountID;
         Statement stmt3;
         stmt3 = con.createStatement();
         ResultSet rs = stmt3.executeQuery(sql3);
-        while (rs.next()){
-            lis = rs.getInt(1);
-
-
-        }
+//        while (rs.next()){
+//            lis = rs.getInt(1);
+//        }
 
 
 

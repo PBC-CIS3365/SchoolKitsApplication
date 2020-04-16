@@ -187,32 +187,29 @@ public class MylistandSearch implements Initializable {
                 itemDes = in.getItemDescription();
                 itemB = in.getItemBrand();
                 supplyId = in.getSupplyID();
+                int listID = Cookies.getList_ID();
 
-
-
-
-                System.out.println(itemName + " " + itemDes + " " + itemB + " "+ supplyId);
+                System.out.println(itemName + " " + itemDes + " " + itemB + " " + "Item Added to listID " + listID);
                 System.out.println(supplyId_cookie);
-                int lis = 25;
+
+
+                //int lis = 25;
 
                 try{
                     int accountID = Cookies.getAccountId();
 
-                    String sql3 = "SELECT List_ID from [Teacher.SupplyList] left join [Teacher.Accounts] on [Teacher.SupplyList].Account_ID=[Teacher.Accounts].AccountID where AccountID ="+ accountID;
-                    Statement stmt3;
-                    stmt3 = con.createStatement();
-                    ResultSet rs = stmt3.executeQuery(sql3);
-                    while (rs.next()){
-                        lis = rs.getInt(1);
-
-
-                    }
-
+//                    String sql3 = "SELECT List_ID from [Teacher.SupplyList] left join [Teacher.Accounts] on [Teacher.SupplyList].Account_ID=[Teacher.Accounts].AccountID where AccountID ="+ accountID;
+//                    Statement stmt3;
+//                    stmt3 = con.createStatement();
+//                    ResultSet rs = stmt3.executeQuery(sql3);
+//                    while (rs.next()){
+//                        lis = rs.getInt(1);
+//                    }
 
                     if(supplyId_cookie == supplyId){
                         //String sql2 = "UPDATE [Teacher.SupplyListItems] SET Quantity=? WHERE Supply_ID=?";
                         //String sql2 = "UPDATE [Teacher.SupplyListItems] SET Quantity=? WHERE Supply_ID=" + supplyId;
-                        String sql2 = "UPDATE [Teacher.SupplyListItems] SET Quantity=? WHERE Supply_ID=" + supplyId +" AND List_ID=" + lis;
+                        String sql2 = "UPDATE [Teacher.SupplyListItems] SET Quantity=? WHERE Supply_ID=" + supplyId +" AND List_ID=" + listID;
                         //sql2 += " AND List_ID=" + lis;
                         PreparedStatement stmt2 = con.prepareStatement(sql2);
                         stmt2.setInt(1, quantity);
@@ -223,39 +220,23 @@ public class MylistandSearch implements Initializable {
                     }else{
                         String sql = "INSERT INTO [Teacher.SupplyListItems](List_ID, Supply_ID, Quantity) VALUES(?,?,?)";
 
-
                         PreparedStatement stmt = con.prepareStatement(sql);
 
-
-                        stmt.setInt(1,lis);
+                        stmt.setInt(1,listID);
                         stmt.setInt(2,supplyId);
                         stmt.setInt(3, quantity);
                         supplyId_cookie = supplyId;
                         stmt.executeUpdate();
-                        info2_field.setText("Item Added!");
+                        info2_field.setText("Item Added to listID " + listID);
                     }
-
-
-
-
 
                 }catch (SQLException e){
                     e.printStackTrace();
                 }
 
-
-
-
-
-
-
-
-
                 item_table.getSelectionModel().select(null);
                 quantity_combo.valueProperty().setValue(null);
-
             }
-
 
         }
         /*if(quantity_combo.getValue()==null){
@@ -263,10 +244,6 @@ public class MylistandSearch implements Initializable {
         }else {
             quantity_combo.valueProperty().setValue(null);
         }*/
-
-
-
-
 
     }
 

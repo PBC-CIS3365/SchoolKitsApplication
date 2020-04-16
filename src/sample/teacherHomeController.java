@@ -59,6 +59,29 @@ public class teacherHomeController implements Initializable {
                 emailLabel.setText(rs4teacherInfo.getString("Email"));
                 accountIdCookie.setText(String.valueOf(rs4teacherInfo.getInt("AccountID")));
             }
+
+            String sql = " SELECT SUM(dbo.[Teacher.Grades].NumberOfStudents) AS [NUMOFSTUDENTS]\n" +
+                    "FROM [Teacher.Grades]\n" +
+                    "WHERE AccountID = ?";
+
+            ResultSet rs = null;
+            stmt = conn.prepareStatement(sql);
+            stmt.setInt(1, cookieAccountID);
+            rs = stmt.executeQuery();
+            while (rs.next()) {
+                numStudentLabel.setText(String.valueOf(rs.getInt("NUMOFSTUDENTS")));
+            }
+
+            String sql2 = "SELECT COUNT(dbo.[Teacher.SupplyList].List_ID) AS [NUMOFLISTS]" +
+                    "FROM [Teacher.SupplyList]\n" +
+                    "WHERE Account_ID = ?";
+            stmt = conn.prepareStatement(sql2);
+            stmt.setInt(1, cookieAccountID);
+            rs = stmt.executeQuery();
+            while (rs.next()) {
+                numOfListsLabel.setText(String.valueOf(rs.getInt("NUMOFLISTS")));
+            }
+
         } catch (SQLException e) {
             e.printStackTrace();
         }
