@@ -75,6 +75,7 @@ public class pickGradesController implements Initializable {
         try {
             Connection conn = DriverManager.getConnection(DB_URL, user, pass);
 
+
             ResultSet rs = null;
             PreparedStatement stmt = null;
             stmt = conn.prepareStatement("INSERT INTO [TEACHER.SUPPLYLIST] (SchoolYear, Date_created, grade, Account_ID) VALUES (?,?,?,?)");
@@ -84,9 +85,15 @@ public class pickGradesController implements Initializable {
             stmt.setInt(4, Cookies.getAccountId());
             stmt.executeUpdate();
 
+
             System.out.println("Record inserted in supply list table");
 
-//            stmt = conn.prepareStatement("SELECT LIST_ID")
+            stmt = conn.prepareStatement("SELECT TOP 1 LIST_ID FROM [TEACHER.SUPPLYLIST] ORDER BY LIST_ID DESC");
+            rs = stmt.executeQuery();
+
+            while (rs.next()) {
+                int currentListID = rs.getInt("List_ID");
+            }
 
         } catch (SQLException e) {
             e.printStackTrace();
