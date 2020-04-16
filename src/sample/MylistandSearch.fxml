@@ -6,17 +6,18 @@
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="575.0" prefWidth="875.0" style="-fx-background-color: #2d3447;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.MylistandSearch">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="593.0" prefWidth="892.0" style="-fx-background-color: #2d3447;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.MylistandSearch">
    <children>
-      <AnchorPane layoutY="-6.0" prefHeight="582.0" prefWidth="194.0" style="-fx-background-color: #2d3447;">
+      <AnchorPane layoutY="-6.0" prefHeight="575.0" prefWidth="195.0" style="-fx-background-color: #2d3447;">
          <children>
-            <JFXButton fx:id="b1" buttonType="RAISED" layoutX="14.0" layoutY="146.0" onMouseClicked="#list_action" prefHeight="97.0" prefWidth="115.0" ripplerFill="#d6ecfc" style="-fx-border-color: black; -fx-background-color: #2196f3;" text="My List" />
-            <JFXButton fx:id="b2" buttonType="RAISED" layoutX="14.0" layoutY="259.0" onMouseClicked="#searchAction" prefHeight="96.0" prefWidth="115.0" ripplerFill="#c8ddee" style="-fx-border-color: black; -fx-background-color: #2196f3;" text="Search" />
+            <JFXButton fx:id="b1" buttonType="RAISED" layoutX="14.0" layoutY="146.0" onMouseClicked="#list_action" prefHeight="97.0" prefWidth="115.0" ripplerFill="#d6ecfc" style="-fx-border-color: black; -fx-background-color: #2196f3;" text="View List" />
+            <JFXButton fx:id="b2" buttonType="RAISED" layoutX="14.0" layoutY="259.0" onMouseClicked="#searchAction" prefHeight="96.0" prefWidth="115.0" ripplerFill="#c8ddee" style="-fx-border-color: black; -fx-background-color: #2196f3;" text="Search" visible="false" />
          </children>
       </AnchorPane>
       <AnchorPane fx:id="one_pane" layoutX="209.0" prefHeight="575.0" prefWidth="666.0" visible="false">
@@ -57,7 +58,13 @@
                   <Font name="Calibri Bold" size="14.0" />
                </font>
             </Label>
+            <JFXButton fx:id="refresh_button1" buttonType="RAISED" layoutX="353.0" layoutY="47.0" onMouseClicked="#handleRefresh" prefHeight="27.0" prefWidth="195.0" style="-fx-background-color: #2196f3;" text="Click Here to View Records">
+               <font>
+                  <Font name="Calibri" size="14.0" />
+               </font>
+            </JFXButton>
          </children>
       </AnchorPane>
+      <ImageView fx:id="image_view" fitHeight="253.0" fitWidth="252.0" layoutX="890.0" layoutY="12.0" pickOnBounds="true" preserveRatio="true" />
    </children>
 </AnchorPane>

@@ -106,17 +106,17 @@
       </VBox>
       <VBox alignment="CENTER" layoutX="643.0" layoutY="123.0">
          <children>
-            <JFXButton text="View mast supply lists" textFill="#2196f3" underline="true">
+            <JFXButton buttonType="RAISED" text="View mast supply lists" textFill="#2196f3">
                <font>
                   <Font size="18.0" />
                </font>
             </JFXButton>
-            <JFXButton text="View all schools" textFill="#2196f3" underline="true">
+            <JFXButton buttonType="RAISED" text="View all schools" textFill="#2196f3">
                <font>
                   <Font size="18.0" />
                </font>
             </JFXButton>
-            <JFXButton text="Add school" textFill="#2196f3" underline="true">
+            <JFXButton buttonType="RAISED" text="Add school" textFill="#2196f3">
                <font>
                   <Font size="18.0" />
                </font>
@@ -125,19 +125,19 @@
       </VBox>
       <VBox alignment="CENTER" layoutX="664.0" layoutY="281.0">
          <children>
-            <JFXButton text="View all teachers" textFill="#2196f3" underline="true">
+            <JFXButton buttonType="RAISED" text="View all teachers" textFill="#2196f3">
                <font>
                   <Font size="18.0" />
                </font>
             </JFXButton>
-            <JFXButton text="View supply lists" textFill="#2196f3" underline="true">
+            <JFXButton buttonType="RAISED" text="View supply lists" textFill="#2196f3">
                <font>
                   <Font size="18.0" />
                </font>
             </JFXButton>
          </children>
       </VBox>
-      <JFXButton layoutX="643.0" layoutY="426.0" text="View supply inventory" textFill="#2196f3" underline="true">
+      <JFXButton buttonType="RAISED" layoutX="643.0" layoutY="426.0" onAction="#View_Supply_Inventory" text="View supply inventory" textFill="#2196f3">
          <font>
             <Font size="18.0" />
          </font>
