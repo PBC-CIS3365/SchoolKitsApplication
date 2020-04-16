@@ -22,7 +22,7 @@
       <root url="jar://$PROJECT_DIR$/library/controlsfx-samples-8.40.13.jar!/" />
       <root url="file://$PROJECT_DIR$/library/sqljdbc_8.2.2.0_enu/sqljdbc_8.2/enu/samples/adaptive" />
       <root url="file://$PROJECT_DIR$/library/sqljdbc_8.2.2.0_enu/sqljdbc_8.2/enu/samples/alwaysencrypted" />
-      <root url="file://$PROJECT_DIR$/library/sqljdbc_8.2.2.0_enu/sqljdbc_8.2/enu/samples/azureauthentication" />
+      <root url="file://$PROJECT_DIR$/library/sqljdbc_8.2.2.0_enu/sqljdbc_8.2/enu/samples/azureAuthentication" />
       <root url="file://$PROJECT_DIR$/library/sqljdbc_8.2.2.0_enu/sqljdbc_8.2/enu/samples/connections" />
       <root url="file://$PROJECT_DIR$/library/sqljdbc_8.2.2.0_enu/sqljdbc_8.2/enu/samples/constrained" />
       <root url="file://$PROJECT_DIR$/library/sqljdbc_8.2.2.0_enu/sqljdbc_8.2/enu/samples/dataclassification" />

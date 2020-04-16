@@ -79,7 +79,7 @@ public class viewInventoryController implements Initializable {
                 "[SchoolKits.SupplyInventory].Quantity*[SchoolKits.SupplyItemPrice].Price AS [TOTAL_VALUE]\n" +
                 "FROM \n" +
                 "[SchoolKits.SupplyInventory] \n" +
-                "INNER JOIN \n" +
+                "FULL JOIN \n" +
                 "[SchoolKits.SupplyItemPrice] \n" +
                 "ON [SchoolKits.SupplyInventory].SupplyID=[SchoolKits.SupplyItemPrice].Supply_ID\n" +
                 "INNER JOIN\n" +
@@ -174,6 +174,7 @@ public class viewInventoryController implements Initializable {
             }
             supplyInventoryList.remove(inventoryTable.getSelectionModel().getSelectedItem());
             inventoryTable.refresh();
+            imageView.setImage(null);
         }
     }
 

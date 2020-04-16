@@ -182,6 +182,8 @@ public class createInventoryItemController implements Initializable {
         String url = urlTxt.getText();
         String notes = notesTxt.getText();
 
+        DataValidation.getSupplyName(name);
+
         try {
             Connection conn = DriverManager.getConnection(DB_URL, user, pass);
 

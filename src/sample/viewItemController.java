@@ -103,7 +103,6 @@ public class viewItemController implements Initializable {
                 vendorLabel.setText(rs.getString("Vendor_Name"));
                 priceTxt.setText(String.valueOf(rs.getFloat("Price")));
                 currentInventoryLabel.setText(String.valueOf(rs.getInt("Quantity")));
-                qtySpinner.setPromptText(String.valueOf(ssi.getQty()));
                 totalValueLabel.setText(String.valueOf(rs.getFloat("TOTAL_VALUE")));
 
                 //set image view with invetory item image

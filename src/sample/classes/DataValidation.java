@@ -207,4 +207,20 @@ public class DataValidation
     {
         return ACCOUNT_ID_COOKIE;
     }
+
+    public static void getSupplyName(String text) {
+
+        String Answer_Format = "^[a-zA-Z0-9 _.,!()+=`,\"@$#%*-]*$";
+        TrayNotification tray = new TrayNotification();
+        AnimationType type = AnimationType.POPUP;
+        tray.setAnimationType(type);
+
+        if (!text.matches(Answer_Format)) {
+            tray.setTitle("Unsuccessful Format ");
+            tray.setMessage("Please enter a name with only 100 character");
+            tray.setNotificationType(NotificationType.ERROR);
+            tray.showAndDismiss(Duration.seconds(5));
+            throw new IllegalArgumentException();
+        }
+    }
 }
