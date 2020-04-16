@@ -8,6 +8,9 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -15,13 +18,13 @@ import javafx.scene.control.ProgressBar;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
+import javafx.stage.Stage;
 import javafx.util.Duration;
 import sample.classes.Cookies;
 import sample.classes.DataValidation;
 import tray.animations.AnimationType;
 import tray.notification.NotificationType;
 import tray.notification.TrayNotification;
-
 import java.io.IOException;
 import java.net.URL;
 import java.sql.*;
@@ -146,6 +149,7 @@ public class Login_SignUp_Controller implements Initializable {
     private AnchorPane Forgot_Admin_Password_Pane;
     @FXML
     private Label Cookie;
+    String ID = null;
 
     @Override
     public void initialize(URL location, ResourceBundle resources)
@@ -166,7 +170,9 @@ public class Login_SignUp_Controller implements Initializable {
     }
 
     @FXML
-    private void Login_Action(ActionEvent event) throws Exception {
+    private void Login_Action(ActionEvent event) throws IOException {
+
+
         Login_Progress.setVisible(true);
         PauseTransition whis = new PauseTransition();
         whis.setDuration(Duration.seconds(3));
@@ -179,15 +185,22 @@ public class Login_SignUp_Controller implements Initializable {
             tray.setNotificationType(NotificationType.SUCCESS);
             tray.showAndDismiss(Duration.seconds(2));
 
-            AnchorPane S_pane = null;
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(getClass().getResource("teacherHomePage.fxml"));
+            Parent GUI = null;
             try {
-                S_pane = FXMLLoader.load(getClass().getResource("Place_Holder.fxml"));  //needs the fxml for the homepage
+                GUI = loader.load();
             } catch (IOException e) {
                 e.printStackTrace();
             }
-            Login_Pane.getChildren().setAll(S_pane);
-        });
+            Scene scene = new Scene(GUI);
+            teacherHomeController controller = loader.getController();
+            controller.passData(Integer.parseInt(ID));
+            Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            window.setScene(scene);
+            window.show();
 
+        });
 
         try {
             DataValidation.Validator(Login_Email.getText().toUpperCase(), Login_Password.getText());
@@ -204,8 +217,8 @@ public class Login_SignUp_Controller implements Initializable {
                 count=count+1;
                 Cookie.setText(resultSet.getString("AccountID"));
             }
-            String ID = Cookie.getText();
-            ResultSet User_Set = conn.createStatement().executeQuery("SELECT DBO.[Teacher.Accounts].First_Name, DBO.[Teacher.Accounts].Last_Name, DBO.[Teacher.Accounts].Account_Type FROM DBO.[Teacher.Accounts]" +
+            ID = Cookie.getText();
+            ResultSet User_Set = conn.createStatement().executeQuery("SELECT DBO.[Teacher.Accounts].First_Name, DBO.[Teacher.Accounts].Last_Name, DBO.[Teacher.Accounts].Account_Type, DBO.[Teacher.Accounts].School, DBO.[Teacher.Accounts].Email FROM DBO.[Teacher.Accounts]" +
                                                                         "WHERE AccountID =('"+ID+"')");
 
             if (count == 1)
@@ -213,9 +226,12 @@ public class Login_SignUp_Controller implements Initializable {
                 while (User_Set.next())
                 {
                     Cookies.setUser(Email, Integer.parseInt(ID), User_Set.getString("First_Name"), User_Set.getString("Last_Name"), User_Set.getString("Account_Type"));
+
                 }
                 whis.play();
+
             }
+
             else {Login_Progress.setVisible(false);
                 TrayNotification tray = new TrayNotification();
                 AnimationType type = AnimationType.SLIDE;
@@ -224,7 +240,6 @@ public class Login_SignUp_Controller implements Initializable {
                 tray.setMessage("Credentials Incorrect");
                 tray.setNotificationType(NotificationType.NOTICE);
                 tray.showAndDismiss(Duration.seconds(5));}
-
 
         } catch (Exception e) {
             Login_Progress.setVisible(false); e.printStackTrace();
