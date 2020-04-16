@@ -1,6 +1,7 @@
 package sample;
 
 import com.jfoenix.controls.JFXButton;
+import com.jfoenix.controls.JFXComboBox;
 import com.jfoenix.controls.JFXTextField;
 import com.sun.javafx.scene.control.inputmap.InputMap;
 import javafx.collections.FXCollections;
@@ -21,6 +22,7 @@ import java.sql.*;
 import java.util.function.Predicate;
 
 import javafx.scene.control.*;
+import javafx.scene.text.Text;
 
 import javax.sound.midi.Soundbank;
 
@@ -45,14 +47,23 @@ public class MylistandSearch implements Initializable {
     public JFXButton addToLost_button;
     public Label noList_label;
 
+            ////new new new
+    public JFXComboBox quantity_combo;
+    public Text info2_field;
 
+    String accountID;
+    //get account ID from cookies or something, will take accountID # from tables temporarily
     String itemName;
     String itemDes;
     String itemB;
+    int supplyId;
+    int supplyId_cookie;
 
+    int quantity = 0;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        quantity_combo.getItems().addAll(1, 2, 3, 4, 5, 6, 7, 8, 9, 10);
 
 
 
@@ -131,20 +142,95 @@ public class MylistandSearch implements Initializable {
 
     }
 
-    public void addToListAction(MouseEvent mouseEvent) {
+    public void addToListAction(MouseEvent mouseEvent) throws SQLException {
+        final String DB_URL = "jdbc:sqlserver://COT-CIS3365-09;database=SKDB;";
+        final String user = "sa";
+        final String pass = "549657Ll";
+        Connection con = DriverManager.getConnection(DB_URL, user, pass);
+        //
         Inventory in = (Inventory) item_table.getSelectionModel().getSelectedItem();
         if(in == null){
-            noList_label.setVisible(true);
+            //noList_label.setVisible(true);
+            info2_field.setText("Nothing is Selected! \n Please select a Item");
         }else{
-            itemName = in.getItemName();
-            itemDes = in.getItemDescription();
-            itemB = in.getItemBrand();
-            System.out.println(itemName + " " + itemDes + " " + itemB);
+
+            if(quantity_combo.getValue() == null){
+                info2_field.setText("Please Select Quantity!");
+            }else{
+                quantity = (Integer) quantity_combo.getValue();
+                info2_field.setText("");
+                itemName = in.getItemName();
+                itemDes = in.getItemDescription();
+                itemB = in.getItemBrand();
+                supplyId = in.getSupplyID();
+
+
+
+
+                System.out.println(itemName + " " + itemDes + " " + itemB + " "+ supplyId);
+                System.out.println(supplyId_cookie);
+                int lis = 25;
+
+                try{
+                    if(supplyId_cookie == supplyId){
+                        //String sql2 = "UPDATE [Teacher.SupplyListItems] SET Quantity=? WHERE Supply_ID=?";
+                        //String sql2 = "UPDATE [Teacher.SupplyListItems] SET Quantity=? WHERE Supply_ID=" + supplyId;
+                        String sql2 = "UPDATE [Teacher.SupplyListItems] SET Quantity=? WHERE Supply_ID=" + supplyId +" AND List_ID=" + lis;
+                        //sql2 += " AND List_ID=" + lis;
+                        PreparedStatement stmt2 = con.prepareStatement(sql2);
+                        stmt2.setInt(1, quantity);
+                        //stmt2.setInt(2,supplyId);
+                        stmt2.executeUpdate();
+                        System.out.println("item Updated");
+
+                    }else{
+                        String sql = "INSERT INTO [Teacher.SupplyListItems](List_ID, Supply_ID, Quantity) VALUES(?,?,?)";
+
+
+                        PreparedStatement stmt = con.prepareStatement(sql);
+
+
+                        stmt.setInt(1,25);
+                        stmt.setInt(2,supplyId);
+                        stmt.setInt(3, quantity);
+                        supplyId_cookie = supplyId;
+                        stmt.executeUpdate();
+                        info2_field.setText("Item Added!");
+                    }
+
+
+
+
+
+                }catch (SQLException e){
+                    e.printStackTrace();
+                }
+
+
+
+
+
+
+
+
+
+                item_table.getSelectionModel().select(null);
+                quantity_combo.valueProperty().setValue(null);
+
+            }
+
 
         }
-        noList_label.setVisible(false);
+        /*if(quantity_combo.getValue()==null){
+            info2_field.setText("Please Select Quantity!");
+        }else {
+            quantity_combo.valueProperty().setValue(null);
+        }*/
+
+
 
 
 
     }
+
 }
