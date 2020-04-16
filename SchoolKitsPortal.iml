@@ -7,8 +7,11 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="library" name="lib" level="project" />
-    <orderEntry type="library" name="jfoenix-9.0.8" level="project" />
+    <orderEntry type="library" exported="" name="fxsampler-1.0.10" level="project" />
+    <orderEntry type="library" exported="" name="javafx-swt" level="project" />
+    <orderEntry type="library" exported="" name="jfoenix-9.0.8" level="project" />
+    <orderEntry type="library" exported="" name="TrayTester" level="project" />
+    <orderEntry type="library" exported="" name="controlsfx-8.40.131" level="project" />
     <orderEntry type="library" name="mssql-jdbc-8.2.2.jre11" level="project" />
   </component>
 </module>

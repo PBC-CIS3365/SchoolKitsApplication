@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.SeparatorMenuItem?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="School_Kits_Portal_Pane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="881.0" style="-fx-background-color: #2d3447;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Supply_Portal_Controller">
+   <children>
+      <ImageView fitHeight="76.0" fitWidth="146.0" layoutX="28.0" layoutY="92.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@Resources/school%20kit.png" />
+         </image>
+      </ImageView>
+      <MenuBar prefHeight="25.0" prefWidth="881.0">
+         <menus>
+            <Menu mnemonicParsing="false" text="File">
+               <items>
+                  <MenuItem mnemonicParsing="false" onAction="#Supply_Portal_Sign_Out" text="Sign out" />
+                  <SeparatorMenuItem mnemonicParsing="false" />
+                  <MenuItem mnemonicParsing="false" onAction="#Supply_Portal_Close_App" text="Quit" />
+               </items>
+            </Menu>
+         </menus>
+      </MenuBar>
+      <Line endX="601.0" layoutX="280.0" layoutY="82.0" startX="-280.0" stroke="WHITE" />
+      <Line endX="-100.0" endY="517.0" layoutX="235.0" layoutY="83.0" startX="-100.0" stroke="#a0a2ab" />
+      <Label layoutX="238.0" layoutY="37.0" text="SCHOOL KITS SUPPLY PORTAL" textFill="#2196f3">
+         <font>
+            <Font size="30.0" />
+         </font>
+      </Label>
+      <Label layoutX="17.0" layoutY="179.0" text="ADMIN" textFill="#acf39d">
+         <font>
+            <Font size="30.0" />
+         </font>
+      </Label>
+      <Circle fill="#1f93ff00" layoutX="239.0" layoutY="179.0" radius="67.0" stroke="#a0a2ab" strokeType="INSIDE" />
+      <Circle fill="#1f93ff00" layoutX="239.0" layoutY="413.0" radius="67.0" stroke="#a0a2ab" strokeType="INSIDE" />
+      <VBox alignment="CENTER" layoutX="200.0" layoutY="149.0">
+         <children>
+            <Label text="NUM" textFill="WHITE">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
+            <Label text="Students" textFill="WHITE">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
+         </children>
+      </VBox>
+      <VBox alignment="CENTER" layoutX="215.0" layoutY="383.0">
+         <children>
+            <Label text="NUM" textFill="WHITE">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
+            <Label text="Lists" textFill="WHITE">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
+         </children>
+      </VBox>
+      <Circle fill="#1f93ff00" layoutX="455.0" layoutY="179.0" radius="67.0" stroke="#a0a2ab" strokeType="INSIDE" />
+      <Circle fill="#1f93ff00" layoutX="455.0" layoutY="413.0" radius="67.0" stroke="#a0a2ab" strokeType="INSIDE" />
+      <VBox alignment="CENTER" layoutX="421.0" layoutY="149.0">
+         <children>
+            <Label text="NUM" textFill="WHITE">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
+            <Label text="Schools" textFill="WHITE">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
+         </children>
+      </VBox>
+      <VBox alignment="CENTER" layoutX="416.0" layoutY="383.0">
+         <children>
+            <Label text="NUM" textFill="WHITE">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
+            <Label text="Teachers" textFill="WHITE">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
+         </children>
+      </VBox>
+      <VBox alignment="CENTER" layoutX="643.0" layoutY="123.0">
+         <children>
+            <JFXButton buttonType="RAISED" text="View mast supply lists" textFill="#2196f3">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </JFXButton>
+            <JFXButton buttonType="RAISED" text="View all schools" textFill="#2196f3">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </JFXButton>
+            <JFXButton buttonType="RAISED" text="Add school" textFill="#2196f3">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </JFXButton>
+         </children>
+      </VBox>
+      <VBox alignment="CENTER" layoutX="664.0" layoutY="281.0">
+         <children>
+            <JFXButton buttonType="RAISED" text="View all teachers" textFill="#2196f3">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </JFXButton>
+            <JFXButton buttonType="RAISED" text="View supply lists" textFill="#2196f3">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </JFXButton>
+         </children>
+      </VBox>
+      <JFXButton buttonType="RAISED" layoutX="643.0" layoutY="426.0" onAction="#View_Supply_Inventory" text="View supply inventory" textFill="#2196f3">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </JFXButton>
+   </children>
+</AnchorPane>

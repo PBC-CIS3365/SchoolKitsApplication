@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Spinner?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="517.0" prefWidth="532.0" style="-fx-background-color: #2d3447;" xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.createInventoryItemController">
+   <children>
+      <VBox layoutX="21.0" layoutY="77.0" prefHeight="410.0" prefWidth="172.0" spacing="15.0">
+         <children>
+            <TextField fx:id="nameTxt" promptText="Enter name of item (required)" />
+            <TextArea fx:id="descriptionTxt" prefHeight="51.0" prefWidth="150.0" promptText="Type description of item (optional)" />
+            <Label text="Quantity (required):" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font></Label>
+            <Spinner fx:id="qtySpinner" prefHeight="26.0" prefWidth="78.0" />
+            <ComboBox fx:id="categoryCombo" prefHeight="26.0" prefWidth="174.0" promptText="Choose category" />
+            <ComboBox fx:id="deptCombo" onMouseClicked="#fillDepartments" prefHeight="26.0" prefWidth="174.0" promptText="Choose department" />
+            <ComboBox fx:id="brandCombo" prefHeight="26.0" prefWidth="179.0" promptText="Choose brand " />
+            <Button fx:id="uploadBtn" mnemonicParsing="false" onAction="#uploadImage" prefHeight="26.0" prefWidth="177.0" text="Upload Image (required)" />
+            <TextField fx:id="urlTxt" prefHeight="22.0" prefWidth="159.0" promptText="Enter URL (optional)" />
+            <TextArea fx:id="notesTxt" prefHeight="54.0" prefWidth="159.0" promptText="Enter notes (optional)" />
+         </children>
+      </VBox>
+      <JFXButton fx:id="addItemBtn" buttonType="RAISED" layoutX="378.0" layoutY="160.0" onAction="#addItem" prefHeight="51.0" prefWidth="123.0" style="-fx-background-color: #0035FF;" text="Add item" textFill="WHITE" visible="false">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </JFXButton>
+      <Label layoutX="169.0" layoutY="13.0" prefHeight="30.0" prefWidth="260.0" text="Add new item to database" textFill="#2196f3" underline="true">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Label>
+      <ImageView fx:id="imageView" fitHeight="271.0" fitWidth="230.0" layoutX="210.0" layoutY="232.0" pickOnBounds="true" preserveRatio="true" />
+      <ComboBox fx:id="vendorCombo" editable="true" layoutX="218.0" layoutY="160.0" prefWidth="150.0" promptText="Choose vendor" visible="false" />
+      <TextField fx:id="priceTxt" layoutX="218.0" layoutY="192.0" prefHeight="26.0" prefWidth="150.0" promptText="Enter Price" visible="false" />
+      <JFXButton fx:id="submitBtn" buttonType="RAISED" layoutX="244.0" layoutY="77.0" onAction="#submitItem" prefHeight="44.0" prefWidth="98.0" ripplerFill="WHITE" style="-fx-background-color: #0035FF;" text="Submit" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </JFXButton>
+      <Label fx:id="enterItemInfoLabel" layoutX="226.0" layoutY="135.0" text="Enter vendor information" textFill="WHITE" visible="false">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Label>
+      <JFXButton fx:id="backButton" buttonType="RAISED" layoutX="21.0" layoutY="17.0" onAction="#goBackToViewInventory" ripplerFill="WHITE" style="-fx-background-color: #ff0000;" text="Back to inventory" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </JFXButton>
+   </children>
+</AnchorPane>

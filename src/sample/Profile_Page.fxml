@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXComboBox?>
+<?import com.jfoenix.controls.JFXPasswordField?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.SeparatorMenuItem?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="Account_Creation_Pane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="881.0" style="-fx-background-color: #2d3447;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Login_SignUp_Controller">
+   <children>
+      <ImageView fitHeight="76.0" fitWidth="146.0" layoutX="403.0" layoutY="43.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@Resources/school%20kit.png" />
+         </image>
+      </ImageView>
+      <HBox layoutX="367.0" layoutY="136.0">
+         <children>
+            <Label prefWidth="98.0" text="School" textFill="#2196f3">
+               <font>
+                  <Font size="30.0" />
+               </font>
+            </Label>
+            <Label text="Kits" textFill="#a0a2ab">
+               <font>
+                  <Font size="30.0" />
+               </font>
+            </Label>
+         </children>
+      </HBox>
+      <VBox layoutX="329.0" layoutY="187.0" spacing="25.0">
+         <children>
+            <JFXPasswordField fx:id="Profile_Password" focusColor="#2196f3" labelFloat="true" minWidth="243.0" promptText="Password" style="-fx-prompt-text-fill: a0a2ab; -fx-text-inner-color: a0a2ab;">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </JFXPasswordField>
+            <JFXPasswordField fx:id="Profile_Confirm_Password" focusColor="#2196f3" labelFloat="true" minWidth="243.0" promptText="Confirm Password" style="-fx-prompt-text-fill: a0a2ab; -fx-text-inner-color: a0a2ab;">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </JFXPasswordField>
+            <JFXComboBox fx:id="Profile_Combo_Box_Security_Q1" labelFloat="true" minWidth="243.0" onAction="#P_Secuirty_Q1" onMouseClicked="#P_Secuirty_Q1_List" prefHeight="25.0" prefWidth="247.0" promptText="Security Question #1" style="-fx-prompt-text-fill: a0a2ab; -fx-text-inner-color: a0a2ab; -fx-test-cell-fill: a0a2ab;" />
+            <JFXComboBox fx:id="Profile_Combo_Box_Security_Q2" labelFloat="true" minWidth="243.0" onAction="#P_Secuirty_Q2" onMouseClicked="#P_Secuirty_Q2_List" prefHeight="25.0" prefWidth="247.0" promptText="Security Question #2" style="-fx-prompt-text-fill: a0a2ab; -fx-text-inner-color: a0a2ab; -fx-test-cell-fill: a0a2ab;" />
+         </children>
+      </VBox>
+      <JFXPasswordField fx:id="Profile_QAnswer1" focusColor="#2196f3" labelFloat="true" layoutX="610.0" layoutY="292.0" minWidth="243.0" promptText="Answer Field #1" style="-fx-prompt-text-fill: a0a2ab; -fx-text-inner-color: a0a2ab;">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </JFXPasswordField>
+      <JFXPasswordField fx:id="Profile_QAnswer2" focusColor="#2196f3" labelFloat="true" layoutX="610.0" layoutY="342.0" minWidth="243.0" promptText="Answer Field #2" style="-fx-prompt-text-fill: a0a2ab; -fx-text-inner-color: a0a2ab;">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </JFXPasswordField>
+      <Label layoutX="6.0" layoutY="127.0" prefHeight="109.0" prefWidth="332.0" rotate="-28.6" text="Finish Creating Account!" textFill="#2196f3">
+         <font>
+            <Font size="30.0" />
+         </font>
+      </Label>
+      <JFXButton layoutX="610.0" layoutY="436.0" onAction="#Profile_Submit" prefHeight="37.0" prefWidth="70.0" style="-fx-background-color: #2196f3;" text="Submit" textFill="WHITE">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </JFXButton>
+      <ImageView fx:id="Profile_Progress" fitHeight="150.0" fitWidth="232.0" layoutX="325.0" layoutY="454.0" pickOnBounds="true" preserveRatio="true" visible="false">
+         <image>
+            <Image url="@Resources/294-1.gif" />
+         </image>
+      </ImageView>
+      <MenuBar prefHeight="25.0" prefWidth="881.0">
+         <menus>
+            <Menu mnemonicParsing="false" text="File">
+               <items>
+                  <SeparatorMenuItem mnemonicParsing="false" />
+                  <MenuItem mnemonicParsing="false" onAction="#Close_app" text="Quit" />
+               </items>
+            </Menu>
+         </menus>
+      </MenuBar>
+      <VBox layoutX="31.0" layoutY="291.0" spacing="25.0" />
+      <ImageView fitHeight="30.0" fitWidth="27.0" layoutX="292.0" layoutY="295.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@Resources/contacts-64.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="30.0" fitWidth="27.0" layoutX="292.0" layoutY="187.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@Resources/Lock%202_64px.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="30.0" fitWidth="27.0" layoutX="292.0" layoutY="242.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@Resources/Lock%202_64px.png" />
+         </image>
+      </ImageView>
+   </children>
+</AnchorPane>

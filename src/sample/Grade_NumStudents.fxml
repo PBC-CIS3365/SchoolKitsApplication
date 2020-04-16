@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXCheckBox?>
+<?import com.jfoenix.controls.JFXComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.SeparatorMenuItem?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="Grade_Pane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="881.0" style="-fx-background-color: #2d3447;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.Grade_NumStudents_Controller">
+   <children>
+      <ImageView fitHeight="76.0" fitWidth="146.0" layoutX="403.0" layoutY="43.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@Resources/school%20kit.png" />
+         </image>
+      </ImageView>
+      <HBox layoutX="367.0" layoutY="135.0">
+         <children>
+            <Label prefWidth="98.0" text="School" textFill="#2196f3">
+               <font>
+                  <Font size="30.0" />
+               </font>
+            </Label>
+            <Label text="Kits" textFill="#a0a2ab">
+               <font>
+                  <Font size="30.0" />
+               </font>
+            </Label>
+         </children>
+      </HBox>
+      <MenuBar prefHeight="25.0" prefWidth="881.0">
+         <menus>
+            <Menu mnemonicParsing="false" text="File">
+               <items>
+                  <SeparatorMenuItem mnemonicParsing="false" />
+                  <MenuItem mnemonicParsing="false" onAction="#Close_app" text="Quit" />
+               </items>
+            </Menu>
+         </menus>
+      </MenuBar>
+      <VBox layoutX="334.0" layoutY="198.0" spacing="10.0">
+         <children>
+            <JFXCheckBox fx:id="One_Check" onAction="#One_Check" text="First Grade" textFill="#a0a2ab" />
+            <JFXCheckBox fx:id="Two_Check" onAction="#Two_Check" text="Second Grade" textFill="#a0a2ab" />
+            <JFXCheckBox fx:id="Three_Check" onAction="#Three_Check" text="Third Grade" textFill="#a0a2ab" />
+            <JFXCheckBox fx:id="Four_Check" onAction="#Four_Check" text="Fourth Grade" textFill="#a0a2ab" />
+            <JFXCheckBox fx:id="Five_Check" onAction="#Five_Check" text="Fifth Grade" textFill="#a0a2ab" />
+            <JFXCheckBox fx:id="Sixth_Check" onAction="#Sixth_Check" text="Sixth Grade" textFill="#a0a2ab" />
+            <JFXCheckBox fx:id="Seven_Check" onAction="#Seven_Check" text="Seventh Grade" textFill="#a0a2ab" />
+            <JFXCheckBox fx:id="Eight_Check" onAction="#Eight_Check" text="Eighth Grade" textFill="#a0a2ab" />
+            <JFXCheckBox fx:id="Nine_Check" onAction="#Nine_Check" text="Nineth Grade" textFill="#a0a2ab" />
+            <JFXCheckBox fx:id="Ten_Check" onAction="#Ten_Check" text="Tenth Grade" textFill="#a0a2ab" />
+            <JFXCheckBox fx:id="Eleven_Check" onAction="#Eleven_Check" text="Eleventh Grade" textFill="#a0a2ab" />
+            <JFXCheckBox fx:id="Twelve_Check" onAction="#Twelve_Check" text="Twelfth Grade" textFill="#a0a2ab" />
+         </children>
+      </VBox>
+      <VBox layoutX="485.0" layoutY="182.0" spacing="5.0">
+         <children>
+            <JFXComboBox fx:id="Combo_Box_1" disable="true" onMouseClicked="#One_List" visible="false" />
+            <JFXComboBox fx:id="Combo_Box_2" disable="true" onMouseClicked="#Two_List" visible="false" />
+            <JFXComboBox fx:id="Combo_Box_3" disable="true" onMouseClicked="#Three_List" visible="false" />
+            <JFXComboBox fx:id="Combo_Box_4" disable="true" onMouseClicked="#Four_List" visible="false" />
+            <JFXComboBox fx:id="Combo_Box_5" disable="true" onMouseClicked="#Five_List" visible="false" />
+            <JFXComboBox fx:id="Combo_Box_6" disable="true" onMouseClicked="#Six_List" visible="false" />
+            <JFXComboBox fx:id="Combo_Box_7" disable="true" onMouseClicked="#Seven_List" visible="false" />
+            <JFXComboBox fx:id="Combo_Box_8" disable="true" onMouseClicked="#Eight_List" visible="false" />
+            <JFXComboBox fx:id="Combo_Box_9" disable="true" onMouseClicked="#Nine_List" visible="false" />
+            <JFXComboBox fx:id="Combo_Box_10" disable="true" onMouseClicked="#Ten_List" visible="false" />
+            <JFXComboBox fx:id="Combo_Box_11" disable="true" onMouseClicked="#Eleven_List" visible="false" />
+            <JFXComboBox fx:id="Combo_Box_12" disable="true" onMouseClicked="#Twelve_List" visible="false" />
+         </children>
+      </VBox>
+      <JFXButton layoutX="588.0" layoutY="544.0" onAction="#Submit_Grades_Num_Students" prefHeight="37.0" prefWidth="70.0" style="-fx-background-color: #2196f3;" text="Submit" textFill="WHITE">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </JFXButton>
+      <ImageView fx:id="Grade_Progress" fitHeight="150.0" fitWidth="232.0" layoutX="287.0" layoutY="552.0" pickOnBounds="true" preserveRatio="true" visible="false">
+         <image>
+            <Image url="@Resources/294-1.gif" />
+         </image>
+      </ImageView>
+   </children>
+</AnchorPane>
