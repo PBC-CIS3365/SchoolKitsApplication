@@ -11,7 +11,7 @@
       <driver-ref>sqlserver.ms</driver-ref>
       <synchronize>true</synchronize>
       <jdbc-driver>com.microsoft.sqlserver.jdbc.SQLServerDriver</jdbc-driver>
-      <jdbc-url>jdbc:sqlserver://cis3365db.c4wtgp04ii93.us-east-1.rds.amazonaws.com;database=PBC</jdbc-url>
+      <jdbc-url>jdbc:sqlserver://cis3365db.c4wtgp04ii93.us-east-1.rds.amazonaws.com/////////////;database=PBC</jdbc-url>
     </data-source>
   </component>
 </project>
