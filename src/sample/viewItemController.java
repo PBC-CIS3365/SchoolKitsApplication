@@ -101,9 +101,9 @@ public class viewItemController implements Initializable {
                 urlTxt.setText(rs.getString("URL"));
                 notesTxt.setText(rs.getString("Notes"));
                 vendorLabel.setText(rs.getString("Vendor_Name"));
-                priceTxt.setText(String.valueOf(rs.getFloat("Price")));
+                priceTxt.setText("$" + rs.getFloat("Price"));
                 currentInventoryLabel.setText(String.valueOf(rs.getInt("Quantity")));
-                totalValueLabel.setText(String.valueOf(rs.getFloat("TOTAL_VALUE")));
+                totalValueLabel.setText("$" + rs.getFloat("TOTAL_VALUE"));
 
                 //set image view with invetory item image
                 InputStream is = rs.getBinaryStream("Image");

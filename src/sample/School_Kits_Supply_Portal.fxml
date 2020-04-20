@@ -104,9 +104,14 @@
             </Label>
          </children>
       </VBox>
-      <JFXButton buttonType="RAISED" layoutX="629.0" layoutY="281.0" onAction="#View_Supply_Inventory" text="View supply inventory" textFill="#2196f3">
+      <JFXButton buttonType="RAISED" layoutX="622.0" layoutY="280.0" onAction="#View_Supply_Inventory" style="-fx-background-color: #2196f3;" text="View supply inventory" textFill="WHITE">
          <font>
-            <Font size="18.0" />
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </JFXButton>
+      <JFXButton layoutX="35.0" layoutY="233.0" onAction="#logOut" prefHeight="26.0" prefWidth="61.0" style="-fx-background-color: #ff0000;" text="Log out" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="12.0" />
          </font>
       </JFXButton>
    </children>

@@ -9,10 +9,14 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.text.Text;
+import javafx.stage.Stage;
 import javafx.util.Duration;
 import sample.classes.Cookies;
 import tray.animations.AnimationType;
@@ -390,13 +394,28 @@ public class Grade_NumStudents_Controller implements Initializable
                 tray.setNotificationType(NotificationType.SUCCESS);
                 tray.showAndDismiss(Duration.seconds(2));
 
-                AnchorPane Grade_pane = null;
+                FXMLLoader loader = new FXMLLoader();
+                loader.setLocation(getClass().getResource("teacherHomePage.fxml"));
+                Parent GUI = null;
                 try {
-                    Grade_pane = FXMLLoader.load(getClass().getResource("Place_Holder.fxml"));
+                    GUI = loader.load();
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
-                Grade_Pane.getChildren().setAll(Grade_pane);
+                Scene scene = new Scene(GUI);
+                teacherHomeController controller = loader.getController();
+                controller.passData(Cookies.getAccountId());
+                Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
+                window.setScene(scene);
+                window.show();
+
+//                AnchorPane Grade_pane = null;
+//                try {
+//                    Grade_pane = FXMLLoader.load(getClass().getResource("teacherHomePage.fxml"));
+//                } catch (IOException e) {
+//                    e.printStackTrace();
+//                }
+//                Grade_Pane.getChildren().setAll(Grade_pane);
             });
 
 

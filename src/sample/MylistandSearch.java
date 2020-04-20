@@ -40,6 +40,9 @@ import javax.sound.midi.Soundbank;
 
 public class MylistandSearch implements Initializable {
 
+    final String DB_URL = "jdbc:sqlserver://COT-CIS3365-09;database=SKDB;";
+    final String user = "sa";
+    final String pass = "549657Ll";
 
     public JFXButton b1;
     public JFXButton b2;
@@ -80,10 +83,6 @@ public class MylistandSearch implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         quantity_combo.getItems().addAll(1, 2, 3, 4, 5, 6, 7, 8, 9, 10);
-
-
-
-
 
 
         itemName_col.setCellValueFactory(cellData -> cellData.getValue().itemNameProperty());
@@ -167,9 +166,7 @@ public class MylistandSearch implements Initializable {
     }
 
     public void addToListAction(MouseEvent mouseEvent) throws SQLException {
-        final String DB_URL = "jdbc:sqlserver://COT-CIS3365-09;database=SKDB;";
-        final String user = "sa";
-        final String pass = "549657Ll";
+
         Connection con = DriverManager.getConnection(DB_URL, user, pass);
         //
         Inventory in = (Inventory) item_table.getSelectionModel().getSelectedItem();
@@ -190,7 +187,7 @@ public class MylistandSearch implements Initializable {
                 int listID = Cookies.getList_ID();
 
                 System.out.println(itemName + " " + itemDes + " " + itemB + " " + "Item Added to listID " + listID);
-                System.out.println(supplyId_cookie);
+                //System.out.println(supplyId_cookie);
 
 
                 //int lis = 25;
@@ -282,12 +279,42 @@ public class MylistandSearch implements Initializable {
         }catch (SQLException e){
             e.printStackTrace();
         }
-
-
-
-
     }
 
+    public void selectItem(MouseEvent mouseEvent) {
+        if (item_table.getSelectionModel().getSelectedItem() == null) {
+            System.out.println("Nothing selected");
+        } else {
+            Inventory in = (Inventory) item_table.getSelectionModel().getSelectedItem();
+            int id = in.getSupplyID();
 
+            try {
+                ResultSet rs = null;
+                Connection conn = DriverManager.getConnection(DB_URL, user, pass);
+                PreparedStatement statement = conn.prepareStatement("SELECT * FROM [SCHOOLKITS.SUPPLYINVENTORY] WHERE SUPPLYID = ?");
+                statement.setInt(1, id);
+                rs = statement.executeQuery();
 
+                while (rs.next()) {
+                    InputStream is = rs.getBinaryStream("Image");
+                    OutputStream os = new FileOutputStream(new File("photo.jpg"));
+                    byte[] content = new byte[1024];
+                    int size = 0;
+                    while ((size = is.read(content)) != -1) {
+                        os.write(content, 0, size);
+                    }
+                    os.close();
+                    is.close();
+
+                    Image image = new Image("file:photo.jpg", image_view.getFitWidth(), image_view.getFitHeight(), true, true);
+                    image_view.setImage(image);
+                }
+                rs.close();
+                conn.close();
+            } catch (Exception ex) {
+                var msg = ex.getMessage();
+                System.out.println(msg);
+            }
+        }
+    }
 }

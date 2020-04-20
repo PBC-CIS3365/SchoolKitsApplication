@@ -84,7 +84,7 @@ public class pickGradesController implements Initializable {
 
             ResultSet rs = null;
             PreparedStatement stmt = null;
-            stmt = conn.prepareStatement("INSERT INTO [TEACHER.SUPPLYLIST] (SchoolYear, Date_created, grade, Account_ID) VALUES (?,?,?,?)");
+            stmt = conn.prepareStatement("INSERT INTO [TEACHER.SUPPLYLIST] (School_Year, Date_created, grade, Account_ID) VALUES (?,?,?,?)");
             stmt.setInt(1, year);
             stmt.setDate(2, sqlDate);
             stmt.setInt(3, grade);

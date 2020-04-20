@@ -1,5 +1,6 @@
 package sample;
 
+import com.jfoenix.controls.JFXTextArea;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -38,6 +39,7 @@ public class teacherHomeController implements Initializable {
     public Label accountIdCookie;
     public ComboBox gradeCombo;
     public AnchorPane chooseGradePane;
+    public JFXTextArea schoolLabel2;
 
     int cookieAccountID;
 
@@ -123,5 +125,19 @@ public class teacherHomeController implements Initializable {
     }
 
     public void viewList(ActionEvent actionEvent) {
+    }
+
+    public void logOut(ActionEvent actionEvent) throws IOException {
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(getClass().getResource("Teacher_Login.fxml"));
+
+        Parent GUI = loader.load();
+        Scene scene = new Scene(GUI);
+
+        Stage window = (Stage)((Node) actionEvent.getSource()).getScene().getWindow();
+
+        window.setScene(scene);
+        window.show();
+
     }
 }

@@ -127,4 +127,17 @@ public class Supply_Portal_Controller implements Initializable{
         window.setScene(scene);
         window.show();
     }
+
+    public void logOut(ActionEvent actionEvent) throws IOException {
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(getClass().getResource("Admin_Login.fxml"));
+
+        Parent GUI = loader.load();
+        Scene scene = new Scene(GUI);
+
+        Stage window = (Stage)((Node) actionEvent.getSource()).getScene().getWindow();
+
+        window.setScene(scene);
+        window.show();
+    }
 }
