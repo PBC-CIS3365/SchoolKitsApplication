@@ -3,21 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="Final Commit">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SchoolKitsPortal/sample/School_Kits_Supply_Portal.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SchoolKitsPortal/sample/School_Kits_Supply_Portal.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SchoolKitsPortal/sample/Supply_Portal_Controller.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SchoolKitsPortal/sample/Supply_Portal_Controller.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/photo.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/photo.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/Grade_NumStudents_Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/Grade_NumStudents_Controller.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/MylistandSearch.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/MylistandSearch.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/MylistandSearch.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/MylistandSearch.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/School_Kits_Supply_Portal.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/School_Kits_Supply_Portal.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/Supply_Portal_Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/Supply_Portal_Controller.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/listView.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/listView.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/listView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/listView.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/pickGradesController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/pickGradesController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/teacherHomeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/teacherHomeController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/teacherHomePage.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/teacherHomePage.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/sample/viewItemController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/viewItemController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/viewItemDetail.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/viewItemDetail.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -226,6 +212,7 @@
       <workItem from="1587048619311" duration="4122000" />
       <workItem from="1587059417252" duration="210000" />
       <workItem from="1587399870182" duration="7883000" />
+      <workItem from="1587411792010" duration="1207000" />
     </task>
     <task id="LOCAL-00001" summary="test commit">
       <created>1585873557635</created>
@@ -262,7 +249,21 @@
       <option name="project" value="LOCAL" />
       <updated>1587058600644</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Final Commit">
+      <created>1587411899956</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1587411899956</updated>
+    </task>
+    <task id="LOCAL-00007" summary="Final Commit">
+      <created>1587411931293</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1587411931293</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -287,12 +288,12 @@
     </state>
     <state x="257" y="225" key="#com.intellij.ide.util.MemberChooser/0.0.1676.902@0.0.1676.902" timestamp="1587043127142" />
     <state x="314" y="278" key="#com.intellij.ide.util.MemberChooser/0.0.2048.1112@0.0.2048.1112" timestamp="1587055162312" />
-    <state x="328" y="135" key="CommitChangelistDialog2" timestamp="1587059450010">
+    <state x="328" y="135" key="CommitChangelistDialog2" timestamp="1587411930860">
       <screen x="0" y="0" width="2048" height="1112" />
     </state>
     <state x="438" y="91" key="CommitChangelistDialog2/0.0.1676.902@0.0.1676.902" timestamp="1586822140623" />
     <state x="502" y="115" key="CommitChangelistDialog2/0.0.1920.1040@0.0.1920.1040" timestamp="1585874099035" />
-    <state x="328" y="135" key="CommitChangelistDialog2/0.0.2048.1112@0.0.2048.1112" timestamp="1587059450010" />
+    <state x="328" y="135" key="CommitChangelistDialog2/0.0.2048.1112@0.0.2048.1112" timestamp="1587411930860" />
     <state width="254" height="195" key="DatabaseViewActions_Filter" timestamp="1585878115265">
       <screen x="0" y="0" width="1676" height="902" />
     </state>
@@ -376,12 +377,12 @@
       <screen x="0" y="0" width="2048" height="1112" />
     </state>
     <state x="446" y="482" key="VCS.ChangelistChooser/0.0.2048.1112@0.0.2048.1112" timestamp="1585873609320" />
-    <state x="189" y="299" key="Vcs.Push.Dialog.v2" timestamp="1587058661952">
+    <state x="189" y="299" key="Vcs.Push.Dialog.v2" timestamp="1587411932150">
       <screen x="0" y="0" width="2048" height="1112" />
     </state>
     <state x="479" y="198" key="Vcs.Push.Dialog.v2/0.0.1676.902@0.0.1676.902" timestamp="1587021905900" />
     <state x="549" y="228" key="Vcs.Push.Dialog.v2/0.0.1920.1040@0.0.1920.1040" timestamp="1585874015064" />
-    <state x="189" y="299" key="Vcs.Push.Dialog.v2/0.0.2048.1112@0.0.2048.1112" timestamp="1587058661952" />
+    <state x="189" y="299" key="Vcs.Push.Dialog.v2/0.0.2048.1112@0.0.2048.1112" timestamp="1587411932150" />
     <state x="116" y="132" width="796" height="892" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1585855568162">
       <screen x="0" y="0" width="2048" height="1112" />
     </state>
@@ -391,11 +392,11 @@
     </state>
     <state x="173" y="326" key="com.intellij.ide.util.TipDialog/0.0.1676.902@0.0.1676.902" timestamp="1587048621695" />
     <state x="211" y="402" key="com.intellij.ide.util.TipDialog/0.0.2048.1112@0.0.2048.1112" timestamp="1587059417507" />
-    <state x="324" y="495" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1587059467113">
+    <state x="324" y="495" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1587411940536">
       <screen x="0" y="0" width="2048" height="1112" />
     </state>
     <state x="304" y="463" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1920.1040@0.0.1920.1040" timestamp="1585873975339" />
-    <state x="324" y="495" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.2048.1112@0.0.2048.1112" timestamp="1587059467113" />
+    <state x="324" y="495" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.2048.1112@0.0.2048.1112" timestamp="1587411940536" />
     <state x="468" y="254" key="git4idea.branch.GitSmartOperationDialog" timestamp="1587053754409">
       <screen x="0" y="0" width="2048" height="1112" />
     </state>
